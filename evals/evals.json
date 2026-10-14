@@ -1,0 +1,180 @@
+{
+  "skill_name": "product-dev-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "/prd-generator I want an appointment booking product for independent tutors. Scheduling by WhatsApp is painful. I like Python but have not chosen anything else. Help me discover the product; keep this in conversation until I give you a repository location.",
+      "expected_output": "Focused business interview; deferred technical preference; no project writes.",
+      "files": [],
+      "assertions": [
+        "Asks one to three focused business questions per batch.",
+        "Keeps stack choices out of the PRD and records Python for the technical step.",
+        "Does not invent metrics or confirmed requirements.",
+        "Respects the conversation-only destination."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "/planning Create an MVP implementation plan for tutor booking. The only confirmed requirements are that students request a time and tutors accept it. There is no PRD, journey document, or architecture. Do not invent decisions; tell me what is missing and draft what is justified.",
+      "expected_output": "Specific prerequisite gaps and provisional useful MVP boundary.",
+      "files": [],
+      "assertions": [
+        "Identifies missing business and technical decisions.",
+        "Labels provisional output draft and records blockers.",
+        "Frames MVP as a complete request-and-accept outcome.",
+        "Does not invent a stack, mark the plan ready, or silently conduct every prior interview."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Our ready artifacts say REQ-001 allows instant bookings, JRN-001 ends in immediate confirmation, DEC-001 implements this behavior, and TASK-001 builds it. Change REQ-001 so tutors must approve requests. Preserve IDs, update clear implications, and flag decisions needing input. Work in conversation because no repository paths have been supplied.",
+      "expected_output": "Traceable source revision and downstream change analysis.",
+      "files": [],
+      "assertions": [
+        "Preserves the four existing IDs.",
+        "Updates the journey outcome to pending request followed by approval.",
+        "Identifies affected technical decisions and task acceptance criteria.",
+        "Marks unresolved dependent content needs-review and records pending impacts.",
+        "Does not claim to have modified unsupplied repository files."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Define documentation obligations for our existing single-app repository. Root is the only project boundary; docs/ and assets/ are content folders. No infra/backend/frontend projects exist. Setup commands are undecided. Explain what to maintain without creating speculative architecture.",
+      "expected_output": "Mandatory files at actual boundaries and accurate stage-appropriate documentation.",
+      "files": [],
+      "assertions": [
+        "Requires .gitignore, README.md, CONTRIBUTING.md, and AGENTS.md at root.",
+        "Does not require extra project directories or subproject files in ordinary content folders.",
+        "Does not invent setup commands or require empty Diataxis guides.",
+        "Explains maintenance of links, source revisions, navigation, and downstream impacts.",
+        "Treats this as guidance only and creates no repository files because the user asked for an explanation, not edits."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Use a temporary empty product folder for /prd-generator. The product is tutor booking; confirmed answers are that students request slots and tutors approve them, while success measures are unknown. Checkpoint this interview before asking the next questions. Then simulate a fresh session with no conversation history: read only saved project files and continue the same skill.",
+      "expected_output": "Draft PRD and workflow state preserve business answers, requested scope, interview progress and exact next questions; fresh session resumes without repeating known answers.",
+      "files": [],
+      "assertions": [
+        "Saves meaningful answers in a draft artifact and links them from workflow state.",
+        "Records current activity, requested scope, completed topics, pending questions, last action, next action and checkpoint time.",
+        "Fresh-session continuation reads saved artifacts and does not ask the user to restate confirmed answers.",
+        "Does not declare the incomplete PRD ready or automatically move into technical definition."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "In saved workflow state, REQ-001 says instant confirmation and the next action is to finish journeys. The PRD has since been edited to require tutor approval, but its recorded revision was not incremented. Resume from the saved files, preserving the edit and identifying affected journey content.",
+      "expected_output": "Resume compares artifact content, preserves the authoritative edit, reconciles or flags affected journeys and repairs stale state.",
+      "files": [],
+      "assertions": [
+        "Inspects artifact content rather than trusting matching revision labels alone.",
+        "Preserves the edited approval requirement.",
+        "Reconciles clear impacts or marks unresolved dependencies needs-review.",
+        "Updates state and next action without falsely claiming unresolved artifacts ready."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "/prd-generator Write a PRD file for an MVP that helps independent language tutors in Brazil schedule one-to-one lessons with students. Treat these as confirmed: tutors currently coordinate by WhatsApp, which causes slow replies and double-booked times; tutors are the paying customers and manage their own availability; adult students browse tutor profiles and available slots, request one, and wait for the tutor to approve or reject; both parties can see the request status and decision in the product; no booking is confirmed until tutor approval. The pilot has 10 tutors and runs for four weeks. Success means at least 80% of requests get a decision within 24 hours, and at least 70% of pilot students complete one booking. Exclude payments, video lessons, group lessons, and automated tutor matching. Write only `docs/product/prd.md` in the supplied empty project folder. Do not ask more questions; these are the complete product decisions for this PRD. Mark it ready if its criteria are met, stop after the PRD, and tell me the recommended next workflow step. Project folder: [the runner supplies a temporary project directory]",
+      "expected_output": "A complete business-only PRD saved at the requested path; it is ready if criteria are met, contains stable requirements and measurable acceptance criteria, creates no unrelated workflow artifacts, and recommends user journeys without starting them.",
+      "files": [],
+      "assertions": [
+        "Writes the PRD at the requested destination and keeps it focused on business behavior.",
+        "Captures the confirmed users, problem, deliverables, scope/exclusions, and both pilot success measures accurately.",
+        "Uses stable requirement IDs and observable acceptance criteria without inventing technical implementation details.",
+        "Marks the PRD ready when its completion criteria are met.",
+        "Explicitly recommends /to-user-journeys as the next step and does not begin that step.",
+        "Creates only the requested PRD artifact; it does not generate journeys, technical definition, planning, or extra repository files."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "/mvp Implement the approved Phase 1 plan in this repository. TASK-001 is complete. TASK-002 is ready and adds tutor approval and booking-status views; TASK-003 depends on TASK-002 and adds notifications. Release criteria require request, approval/rejection, and status visibility to work end to end. Run the project-defined checks, update docs and workflow state, and continue through all ready MVP tasks. Do not deploy or publish.",
+      "expected_output": "Autonomous in-scope completion of ready MVP tasks, with verification and docs/state updated; no repeated approvals at task boundaries and no deployment.",
+      "files": [],
+      "assertions": [
+        "Reads repository instructions and the approved plan before editing.",
+        "Implements TASK-002 and then TASK-003 in dependency order, within their stated scope.",
+        "Runs relevant project-defined checks and reports actual results without claiming unrun checks passed.",
+        "Updates applicable documentation, task evidence, workflow state, and next task or completion status.",
+        "Does not expand product scope or deploy/publish without authorization."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "/brownfield-discovery Analyze this existing repository and produce the brownfield assessment, PRD, user journeys, technical definition, and implementation plan. Use only repository code and versioned documentation as evidence. Project folder: [the runner supplies a temporary project directory].",
+      "expected_output": "A traceable static assessment and the complete linked product artifact set, with interviews for material product decisions and no implementation.",
+      "files": [],
+      "assertions": [
+        "Inspects repository instructions, actual project boundaries, existing artifacts, and versioned documentation before drafting.",
+        "Cites evidence by repository path and line or section where practical, with source revision.",
+        "Separates observed behavior, inference, confirmed intent, and open questions.",
+        "Does not treat existing behavior as desired requirements without user confirmation.",
+        "Generates assessment, PRD, journeys, technical definition, and implementation plan in order, preserving stable IDs and source traceability.",
+        "Does not run the application or begin implementation."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "/brownfield-discovery The README says users can export reports, but repository search finds no export implementation or test. Produce the full artifact set from this project. Project folder: [the runner supplies a temporary project directory].",
+      "expected_output": "A documented source conflict or gap, with export intent left unresolved until confirmed and downstream readiness accurately blocked.",
+      "files": [],
+      "assertions": [
+        "Records the README claim and missing code evidence as a conflict/gap rather than asserting runtime behavior.",
+        "Asks whether export is intended/current scope if it materially affects product scope.",
+        "Does not create a confirmed requirement from the README alone.",
+        "Keeps affected artifacts draft or needs-review and records the pending decision in workflow state."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "/brownfield-discovery Derive the full product artifact set from this repository. Existing product docs conflict with current code on whether users need administrator approval. Do not ask me to confirm every code observation; ask only about decisions that materially affect the product. Project folder: [the runner supplies a temporary project directory].",
+      "expected_output": "Efficient evidence-based discovery that distinguishes implementation facts from product intent and asks a focused question about the approval policy.",
+      "files": [],
+      "assertions": [
+        "Uses repository evidence to describe current implementation without claiming it establishes desired policy.",
+        "Asks a focused question about the material approval-policy conflict.",
+        "Does not ask for confirmation of every factual inventory item.",
+        "Continues independent evidence gathering and checkpoints the open decision."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "/brownfield-discovery This legacy repository has an existing PRD with REQ-001 and a technical definition with DEC-001. Analyze the code and generate the complete artifact set while preserving existing decisions and IDs where applicable. Project folder: [the runner supplies a temporary project directory].",
+      "expected_output": "Brownfield assessment and downstream artifacts reconciled with the existing documents, preserving user edits and ID continuity.",
+      "files": [],
+      "assertions": [
+        "Reads existing artifact content and source revisions instead of trusting filenames or ready status.",
+        "Preserves REQ-001 and DEC-001 when their meanings remain applicable, and never reuses retired IDs.",
+        "Reconciles clear code implications and flags unresolved conflicts as needs-review.",
+        "Updates actual paths, revisions, source links, revision history, documentation navigation, and workflow state."
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "/brownfield-discovery Generate the full product artifact set in this existing repository. Its root AGENTS.md contains team-specific build and review rules; preserve them and add only concise links and instructions for the product workflow. Do not create a duplicate AGENTS.md. Project folder: [the runner supplies a temporary project directory].",
+      "expected_output": "Existing agent guidance preserved and reconciled with concise product workflow pointers to actual artifact paths.",
+      "files": [],
+      "assertions": [
+        "Reads and preserves existing AGENTS.md content and local instructions.",
+        "Adds or integrates a concise product workflow section with actual artifact links.",
+        "Does not duplicate detailed PRD requirements or overwrite unrelated guidance.",
+        "Does not create redundant AGENTS.md files outside actual project boundaries."
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "/prd-generator Create a PRD and initialize the product documentation for this new project. Include the required AGENTS.md guidance so coding agents consult the relevant plan and linked product artifacts and update them when behavior or scope changes. Project folder: [the runner supplies a temporary project directory].",
+      "expected_output": "Greenfield documentation includes concise AGENTS.md product workflow guidance with valid project-specific links and no speculative commands.",
+      "files": [],
+      "assertions": [
+        "Creates AGENTS.md only at actual project boundaries.",
+        "Links to the actual product artifact index or workflow state and relevant artifacts.",
+        "Tells agents to trace implementation tasks to source IDs and reconcile affected product docs.",
+        "Does not copy full requirements into AGENTS.md or invent commands."
+      ]
+    }
+  ]
+}
