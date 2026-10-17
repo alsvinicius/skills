@@ -4,10 +4,23 @@ This repository contains reusable skills for Codex. Each skill has a `SKILL.md` 
 
 ## Available skills
 
-- [`product-dev-workflow` (root package)](./SKILL.md) — guide product discovery through an MVP-first implementation plan and authorised implementation.
+- [`prd/` (`product-dev-workflow` skill)](./prd/SKILL.md) — guide product discovery through an MVP-first implementation plan and authorised implementation.
 - [`open-source-preparation/`](./open-source-preparation/SKILL.md) — audit and prepare an existing project for an understandable, privacy-conscious open-source release.
 
-The `product-dev-workflow` skill remains at the repository root for compatibility with its existing installation path. The second skill is packaged in its own directory.
+Each skill is packaged in its own directory. The PRD package keeps the internal skill name `product-dev-workflow` for trigger compatibility.
+
+## Repository layout
+
+```text
+.
+├── prd/                       # product-dev-workflow skill and resources
+├── open-source-preparation/   # open-source-preparation skill and resources
+├── AGENTS.md
+├── CONTRIBUTING.md
+├── README.md
+├── LICENSE
+└── docs/
+```
 
 ## Install for Codex
 
@@ -16,8 +29,8 @@ The examples below install both skills into the default Codex skills directory. 
 ```sh
 skills_dir="${CODEX_HOME:-$HOME/.codex}/skills"
 mkdir -p "$skills_dir/product-dev-workflow" "$skills_dir/open-source-preparation"
-cp SKILL.md "$skills_dir/product-dev-workflow/"
-cp -R assets references evals "$skills_dir/product-dev-workflow/"
+cp prd/SKILL.md "$skills_dir/product-dev-workflow/"
+cp -R prd/assets prd/references prd/evals "$skills_dir/product-dev-workflow/"
 cp -R open-source-preparation/. "$skills_dir/open-source-preparation/"
 ```
 

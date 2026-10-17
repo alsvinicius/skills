@@ -2,7 +2,7 @@
 
 ## Project map
 
-- Root `SKILL.md` and `assets/`, `references/`, `evals/` files are the `product-dev-workflow` skill. Its root placement preserves the existing package layout.
+- `prd/` contains the `product-dev-workflow` skill, including its entry point, assets, references, templates, and evaluation cases.
 - `open-source-preparation/` contains the separately packaged `open-source-preparation` skill and its supporting files.
 - `docs/` explains how to use and maintain this repository; it is not a substitute for either skill's operating instructions.
 
@@ -16,7 +16,7 @@
 ## Validation
 
 - Review the full diff and check that links and referenced files resolve.
-- Parse each `evals/evals.json` as JSON with Python's standard library when evaluation files change. No evaluation runner is bundled in this repository.
+- Parse each skill's `evals/evals.json` as JSON with Python's standard library when evaluation files change. No evaluation runner is bundled in this repository.
 - No build or runtime command is defined; do not claim that an evaluation suite passed unless one is added and run.
 
 ## Completion
