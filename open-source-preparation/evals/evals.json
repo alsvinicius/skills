@@ -1,0 +1,23 @@
+{
+  "skill_name": "open-source-preparation",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Quero abrir este projeto Python para outras pessoas. Hoje ele lê meus arquivos de uma pasta absoluta em /home/ana/Documentos/leituras. Prepare o repositório para que cada pessoa use seus próprios arquivos depois de clonar, e crie a documentação e os arquivos de contribuição que estiverem faltando.",
+      "expected_output": "Inspeciona o projeto antes de editar; troca caminhos pessoais por uma pasta local clone-safe configurável, ignora o conteúdo privado e preserva um marcador seguro; atualiza README.md, AGENTS.md, CONTRIBUTING.md e documentação Diátaxis com fatos do projeto; não move nem publica arquivos pessoais.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Esse app Node.js está funcionando e quero publicar o código no GitHub como open source. Não tenho certeza se precisa de licença. Faça os ajustes de preparação, documente como instalar e operar e deixe os dados de cada usuário locais ao clone.",
+      "expected_output": "Adapta documentação e configuração aos comandos e arquitetura realmente encontrados, cria os arquivos e guias úteis nos quatro tipos Diátaxis, deixa os dados do usuário numa pasta local ignorada que existe no clone, e trata a licença ausente como decisão pendente sem escolher uma pelo usuário ou afirmar que a publicação está totalmente pronta.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Pode deixar este repositório pronto para open source? Acho que tem um .env com chave de API e um banco SQLite com meus dados. Também usei algumas skills do Codex para desenhar o projeto; quero incluir as que forem relevantes em .agents/.",
+      "expected_output": "Audita arquivos rastreados e histórico sem revelar valores secretos; bloqueia a inclusão futura de segredos e dados pessoais, explica que ignorar não apaga commits existentes e não reescreve histórico; configura pasta local de dados e documentação; inclui somente skills relevantes e redistribuíveis em .agents/, mantendo atribuição e sinalizando dependências privadas.",
+      "files": []
+    }
+  ]
+}
