@@ -2,8 +2,8 @@
 
 ## Project map
 
-- `prd/` contains the `product-dev-workflow` skill, including its entry point, assets, references, templates, and evaluation cases.
-- `open-source-preparation/` contains the separately packaged `open-source-preparation` skill and its supporting files.
+- `skills/product-dev-workflow/` contains the product workflow skill, including its entry point, assets, references, templates, and evaluation cases.
+- `skills/open-source-preparation/` contains the open-source preparation skill and its supporting files.
 - `docs/` explains how to use and maintain this repository; it is not a substitute for either skill's operating instructions.
 
 ## Editing

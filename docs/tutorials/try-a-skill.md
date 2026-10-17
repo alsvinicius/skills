@@ -8,9 +8,8 @@ This tutorial installs both bundled skills in the default Codex skills directory
    ```sh
    skills_dir="${CODEX_HOME:-$HOME/.codex}/skills"
    mkdir -p "$skills_dir/product-dev-workflow" "$skills_dir/open-source-preparation"
-   cp prd/SKILL.md "$skills_dir/product-dev-workflow/"
-   cp -R prd/assets prd/references prd/evals "$skills_dir/product-dev-workflow/"
-   cp -R open-source-preparation/. "$skills_dir/open-source-preparation/"
+   cp -R skills/product-dev-workflow/. "$skills_dir/product-dev-workflow/"
+   cp -R skills/open-source-preparation/. "$skills_dir/open-source-preparation/"
    ```
 
 3. Refresh or restart Codex if it does not discover the skills.

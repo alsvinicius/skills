@@ -2,11 +2,11 @@
 
 | Path | Purpose |
 |---|---|
-| `prd/SKILL.md` | Entry point for the `product-dev-workflow` skill package. |
-| `prd/assets/templates/` | Templates used by `product-dev-workflow`. |
-| `prd/references/` | Supporting workflow instructions for `product-dev-workflow`. |
-| `prd/evals/evals.json` | Evaluation cases; no runner is included. |
-| `open-source-preparation/` | Entry point and supporting evaluation cases for the `open-source-preparation` skill. |
+| `skills/product-dev-workflow/SKILL.md` | Entry point for the product workflow skill package. |
+| `skills/product-dev-workflow/assets/templates/` | Templates used by `product-dev-workflow`. |
+| `skills/product-dev-workflow/references/` | Supporting workflow instructions for `product-dev-workflow`. |
+| `skills/product-dev-workflow/evals/evals.json` | Evaluation cases; no runner is included. |
+| `skills/open-source-preparation/` | Entry point and supporting evaluation cases for the open-source preparation skill. |
 | `docs/` | Repository tutorials, task guidance, reference, and explanation. |
 | `README.md`, `AGENTS.md`, `CONTRIBUTING.md` | Repository overview, editing guidance, and contribution process. |
 | `LICENSE` | MIT licence for repository content. |

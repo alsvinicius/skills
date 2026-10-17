@@ -4,17 +4,18 @@ This repository contains reusable skills for Codex. Each skill has a `SKILL.md` 
 
 ## Available skills
 
-- [`prd/` (`product-dev-workflow` skill)](./prd/SKILL.md) — guide product discovery through an MVP-first implementation plan and authorised implementation.
-- [`open-source-preparation/`](./open-source-preparation/SKILL.md) — audit and prepare an existing project for an understandable, privacy-conscious open-source release.
+- [`skills/product-dev-workflow/`](./skills/product-dev-workflow/SKILL.md) — guide product discovery through an MVP-first implementation plan and authorised implementation.
+- [`skills/open-source-preparation/`](./skills/open-source-preparation/SKILL.md) — audit and prepare an existing project for an understandable, privacy-conscious open-source release.
 
-Each skill is packaged in its own directory. The PRD package keeps the internal skill name `product-dev-workflow` for trigger compatibility.
+Each skill is packaged in its own directory under `skills/`. The `product-dev-workflow` package keeps its internal skill name for trigger compatibility.
 
 ## Repository layout
 
 ```text
 .
-├── prd/                       # product-dev-workflow skill and resources
-├── open-source-preparation/   # open-source-preparation skill and resources
+├── skills/
+│   ├── product-dev-workflow/  # skill and resources
+│   └── open-source-preparation/ # skill and resources
 ├── AGENTS.md
 ├── CONTRIBUTING.md
 ├── README.md
@@ -29,9 +30,8 @@ The examples below install both skills into the default Codex skills directory. 
 ```sh
 skills_dir="${CODEX_HOME:-$HOME/.codex}/skills"
 mkdir -p "$skills_dir/product-dev-workflow" "$skills_dir/open-source-preparation"
-cp prd/SKILL.md "$skills_dir/product-dev-workflow/"
-cp -R prd/assets prd/references prd/evals "$skills_dir/product-dev-workflow/"
-cp -R open-source-preparation/. "$skills_dir/open-source-preparation/"
+cp -R skills/product-dev-workflow/. "$skills_dir/product-dev-workflow/"
+cp -R skills/open-source-preparation/. "$skills_dir/open-source-preparation/"
 ```
 
 Restart or refresh Codex if it does not discover the new skills. The repository does not include an installer or automatically install files when cloned. For the skill package format and other host integrations, see [OpenAI's skill documentation](https://developers.openai.com/api/docs/guides/tools-skills).
