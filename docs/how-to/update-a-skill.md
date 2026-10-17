@@ -8,4 +8,4 @@
 6. Check every referenced path manually and describe any evaluation that was not run.
 7. Open a pull request for review; confirm with maintainers whether larger changes need an issue first.
 
-The repository has no declared licence and no bundled skill evaluation runner. See [contributor guidance](../../CONTRIBUTING.md) before proposing a release or redistributing third-party content.
+The repository is licensed under MIT and has no bundled skill evaluation runner. See [contributor guidance](../../CONTRIBUTING.md) before redistributing third-party content.

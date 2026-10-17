@@ -1,11 +1,19 @@
 # Try a skill from this repository
 
-This tutorial walks through locating and preparing one skill for use in a Codex installation. It does not assume this repository is automatically discovered.
+This tutorial installs both bundled skills in the default Codex skills directory. It assumes you have cloned this repository and have a shell available.
 
-1. Choose `product-dev-workflow` or `open-source-preparation` from the repository root.
-2. Read that skill's `SKILL.md` from beginning to end, including its linked resources.
-3. Copy the complete skill package into the skills location used by your Codex setup. For `product-dev-workflow`, the package consists of the root `SKILL.md`, `assets/`, `references/`, and `evals/`. For `open-source-preparation`, copy the complete `open-source-preparation/` directory.
-4. Refresh or restart the Codex client if required by your setup.
-5. Start a conversation with a task that matches the chosen skill and confirm the skill's instructions fit your project before making repository changes.
+1. Read both skills' `SKILL.md` files from beginning to end, including their linked resources.
+2. Run these commands from the repository root:
 
-The skill should be treated as guidance, not as evidence that its suggested commands or project assumptions apply to every repository. For package paths and repository limitations, see the [reference](../reference/repository-layout.md).
+   ```sh
+   skills_dir="${CODEX_HOME:-$HOME/.codex}/skills"
+   mkdir -p "$skills_dir/product-dev-workflow" "$skills_dir/open-source-preparation"
+   cp SKILL.md "$skills_dir/product-dev-workflow/"
+   cp -R assets references evals "$skills_dir/product-dev-workflow/"
+   cp -R open-source-preparation/. "$skills_dir/open-source-preparation/"
+   ```
+
+3. Refresh or restart Codex if it does not discover the skills.
+4. Start a conversation with a task that matches one skill. Review the instructions and confirm they fit your project before authorising repository changes.
+
+The skill should be treated as guidance, not as evidence that its suggested commands or project assumptions apply to every repository. For package paths and repository limitations, see the [reference](../reference/repository-layout.md). The install location follows the `${CODEX_HOME:-$HOME/.codex}/skills` convention shown in [OpenAI's Codex workflow documentation](https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex).

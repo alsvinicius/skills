@@ -11,4 +11,4 @@ Contributions to the skill instructions, supporting resources, and repository do
 5. Parse changed evaluation JSON files with `python3 -m json.tool path/to/evals.json`.
 6. Check links and references manually. There is no bundled test or evaluation runner.
 
-Do not add a licence or third-party material without confirming the relevant rights with the repository owner. The repository currently has no declared licence; this is an owner decision and a release blocker for an explicitly open-source release.
+The repository content is licensed under MIT; see [LICENSE](LICENSE). Before adding third-party material, confirm that its terms allow inclusion under MIT and retain any required attribution or notices. No separate contributor licence agreement is documented. See [licence and redistribution status](docs/reference/licensing-and-redistribution.md).
