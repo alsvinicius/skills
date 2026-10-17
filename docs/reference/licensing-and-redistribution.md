@@ -6,7 +6,7 @@ All repository content is licensed under MIT in [`LICENSE`](../../LICENSE). The 
 
 ## Content inventory
 
-The tracked project consists of two skill instruction bundles, Markdown templates and references, JSON evaluation prompts, and repository documentation. The repository has no declared package dependencies, executable assets, or runtime data. No binary assets were found. The owner confirmed that MIT applies to all in-tree content.
+The repository includes skill instruction bundles, Markdown templates and references, JSON evaluation prompts, and repository documentation. Local-only materials are excluded from the distributable repository. The owner confirmed that MIT applies to in-tree content.
 
 The available Git history begins with the product workflow skill and contains the later preparation changes. Git history and the current tree were checked for credentials, machine-specific personal paths, and personal identifiers; none were found. One evaluation prompt contains an intentionally fictional home path and fictional name.
 
@@ -18,4 +18,4 @@ The `writing-documentation-with-diataxis` skill informed the documentation struc
 2. Preserve attribution and notices for any third-party material that is later added.
 3. Update this page and `README.md` if the licence scope changes.
 
-The audit found no third-party binary assets or package dependencies requiring separate licence notices. The repository owner confirmed the rights to license the in-tree content under MIT.
+The repository owner confirmed the rights to license the in-tree content under MIT.

@@ -8,7 +8,7 @@
 
 ## Editing
 
-- Keep each skill's `SKILL.md` as its entry point. Preserve relative links and include required references, templates, assets, and eval cases with the skill that uses them.
+- Keep each distributable skill's `SKILL.md` as its entry point. Preserve relative links and include required references, templates, assets, and eval cases with the skill that uses them.
 - Ground operational instructions in the actual skill resources. Do not add credentials, personal data, machine-specific paths, or private prompts.
 - Keep documentation in British English, consistent with the bundled documentation guidance, and update links when paths change.
 - Do not invent a licence, evaluation result, installer, or supported runtime behaviour.

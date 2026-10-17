@@ -12,3 +12,10 @@ venv/
 # Operating system metadata
 .DS_Store
 Thumbs.db
+
+# Local-only Instrument Design materials
+/skills/instrument-design
+/skills/instrument-design-workspace/
+/docs/plans/instrument-design-remediation.md
+
+# Local qualitative review outputs

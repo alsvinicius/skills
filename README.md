@@ -23,6 +23,8 @@ Each skill is packaged in its own directory under `skills/`. The `product-dev-wo
 └── docs/
 ```
 
+Local-only materials are excluded from this repository's distributable content.
+
 ## Install for Codex
 
 The examples below install both skills into the default Codex skills directory. Set `CODEX_HOME` if your Codex setup uses a different home directory. The default location follows the Codex skill setup guidance.
@@ -44,9 +46,8 @@ Start with the selected skill's `SKILL.md`; it links to the supporting reference
 - [How to add or update a skill](docs/how-to/update-a-skill.md)
 - [Repository reference](docs/reference/repository-layout.md)
 - [Why the skills are packaged this way](docs/explanation/packaging.md)
-- [Licence and redistribution status](docs/reference/licensing-and-redistribution.md)
 - [Contributing](CONTRIBUTING.md)
 
 ## Licence
 
-All repository content is licensed under the MIT License. See [LICENSE](LICENSE). The repository owner confirmed that the licence applies to all content in this repository.
+Repository content is licensed under the MIT License. See [LICENSE](LICENSE).
