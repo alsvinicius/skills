@@ -8,6 +8,8 @@
 | `skills/product-dev-workflow/evals/evals.json` | Evaluation cases; no runner is included. |
 | `skills/open-source-preparation/SKILL.md` | Entry point for the open-source preparation skill. |
 | `skills/open-source-preparation/evals/evals.json` | Evaluation cases; no runner is included. |
+| `skills/uniao-sinistra/SKILL.md` | Cross-harness orchestration protocol and progressive-disclosure entry point. |
+| `skills/uniao-sinistra/references/harnesses/` | One Markdown reference per supported agent harness. |
 | `docs/` | Repository tutorials, task guidance, reference, and explanation. |
 | `README.md`, `AGENTS.md`, `CONTRIBUTING.md` | Repository overview, editing guidance, and contribution process. |
 | `LICENSE` | MIT licence for repository content. |

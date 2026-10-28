@@ -1,0 +1,29 @@
+{
+  "skill_name": "uniao-sinistra",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use Codex para planejar e Claude Code para implementar uma pequena correção, com perfil explícito e validação pelo coordenador.",
+      "expected_output": "Plano rastreável, perfil registrado, handoff compatível com Claude Code e validação pelo coordenador.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Peça ao OpenCode para executar uma tarefa preparada pelo Kiro CLI e devolva o resultado ao Kiro para validar.",
+      "expected_output": "Módulos dos dois harnesses carregados, execução com permissões documentadas e retorno ao coordenador para validação.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Adicione suporte a um novo harness CLI seguindo uniao-sinistra.",
+      "expected_output": "Um módulo Markdown baseado em template que possa ser descoberto sem mudanças no protocolo central.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "O executor falhou depois de alterar alguns arquivos. Continue a tarefa.",
+      "expected_output": "Inspecionar estado parcial antes de retomar, registar falha e evitar duplicação ou mudanças concorrentes.",
+      "files": []
+    }
+  ]
+}

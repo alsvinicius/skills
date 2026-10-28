@@ -6,6 +6,7 @@ This repository contains reusable skills for Codex. Each skill has a `SKILL.md` 
 
 - [`skills/product-dev-workflow/`](./skills/product-dev-workflow/SKILL.md) — guide product discovery through an MVP-first implementation plan and authorised implementation.
 - [`skills/open-source-preparation/`](./skills/open-source-preparation/SKILL.md) — audit and prepare an existing project for an understandable, privacy-conscious open-source release.
+- [`skills/uniao-sinistra/`](./skills/uniao-sinistra/SKILL.md) — coordinate planning, CLI handoffs, execution and validation across coding agent harnesses.
 
 Each skill is packaged in its own directory under `skills/`. The `product-dev-workflow` package keeps its internal skill name for trigger compatibility.
 
@@ -15,7 +16,8 @@ Each skill is packaged in its own directory under `skills/`. The `product-dev-wo
 .
 ├── skills/
 │   ├── product-dev-workflow/  # skill and resources
-│   └── open-source-preparation/ # skill and resources
+│   ├── open-source-preparation/ # skill and resources
+│   └── uniao-sinistra/          # cross-harness orchestration skill
 ├── AGENTS.md
 ├── CONTRIBUTING.md
 ├── README.md
@@ -31,9 +33,10 @@ The examples below install both skills into the default Codex skills directory. 
 
 ```sh
 skills_dir="${CODEX_HOME:-$HOME/.codex}/skills"
-mkdir -p "$skills_dir/product-dev-workflow" "$skills_dir/open-source-preparation"
+mkdir -p "$skills_dir/product-dev-workflow" "$skills_dir/open-source-preparation" "$skills_dir/uniao-sinistra"
 cp -R skills/product-dev-workflow/. "$skills_dir/product-dev-workflow/"
 cp -R skills/open-source-preparation/. "$skills_dir/open-source-preparation/"
+cp -R skills/uniao-sinistra/. "$skills_dir/uniao-sinistra/"
 ```
 
 Restart or refresh Codex if it does not discover the new skills. The repository does not include an installer or automatically install files when cloned. For the skill package format and other host integrations, see [OpenAI's skill documentation](https://developers.openai.com/api/docs/guides/tools-skills).
