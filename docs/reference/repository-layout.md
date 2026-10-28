@@ -17,9 +17,9 @@
 
 ## Environment and installation
 
-The repository contains instructions and supporting files, not an application. It has no declared package dependencies, persistent user-data directory, package manifest, build system, or automated evaluation runner. Using the skills requires a Codex setup that loads local skills. The tutorial installs them under `${CODEX_HOME:-$HOME/.codex}/skills` and copies each skill's complete file set.
+The repository contains instructions and supporting files, not an application. It has no declared package dependencies, persistent user-data directory, package manifest, build system, or automated evaluation runner. Use requires an agent that supports the Agent Skills format. The tutorial shows how to copy a complete skill package into a host-selected skills directory; the format does not define that directory or guarantee identical behaviour across agents.
 
-OpenAI's skill format uses a directory containing `SKILL.md` and optional supporting resources. See the [official skill documentation](https://developers.openai.com/api/docs/guides/tools-skills) for host-specific integrations and limitations.
+The [Agent Skills specification](https://agentskills.io/specification) defines a skill as a directory containing `SKILL.md` and optional supporting resources. Consult each agent's documentation for discovery paths, installation, and host-specific limitations.
 
 Skills are plain-text instructions and supporting files. All repository content is licensed under MIT; see [licence and redistribution status](licensing-and-redistribution.md) for the audit scope and handling of future third-party material.
 

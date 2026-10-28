@@ -1,6 +1,6 @@
-# Codex skills
+# Agent Skills
 
-This repository contains reusable skills for Codex. Each skill has a `SKILL.md` entry point and may include references, templates, assets, and evaluation cases.
+This repository contains reusable skills in the open [Agent Skills format](https://agentskills.io/specification). Each skill is a portable directory with a `SKILL.md` entry point and may include references, templates, assets, and evaluation cases. Any agent that implements the format can use these packages; discovery and installation locations vary by host.
 
 ## Available skills
 
@@ -27,19 +27,17 @@ Each skill is packaged in its own directory under `skills/`. The `product-dev-wo
 
 Local-only materials are excluded from this repository's distributable content.
 
-## Install for Codex
+## Install for an agent
 
-The examples below install both skills into the default Codex skills directory. Set `CODEX_HOME` if your Codex setup uses a different home directory. The default location follows the Codex skill setup guidance.
+Find the skills directory supported by your agent in its documentation, then copy any skill package into that directory. For example, set `AGENT_SKILLS_DIR` to the directory your agent scans and run these commands from the repository root:
 
 ```sh
-skills_dir="${CODEX_HOME:-$HOME/.codex}/skills"
-mkdir -p "$skills_dir/product-dev-workflow" "$skills_dir/open-source-preparation" "$skills_dir/uniao-sinistra"
-cp -R skills/product-dev-workflow/. "$skills_dir/product-dev-workflow/"
-cp -R skills/open-source-preparation/. "$skills_dir/open-source-preparation/"
-cp -R skills/uniao-sinistra/. "$skills_dir/uniao-sinistra/"
+test -n "$AGENT_SKILLS_DIR" || { echo "Set AGENT_SKILLS_DIR to your agent's skills directory" >&2; exit 1; }
+mkdir -p "$AGENT_SKILLS_DIR/uniao-sinistra"
+cp -R skills/uniao-sinistra/. "$AGENT_SKILLS_DIR/uniao-sinistra/"
 ```
 
-Restart or refresh Codex if it does not discover the new skills. The repository does not include an installer or automatically install files when cloned. For the skill package format and other host integrations, see [OpenAI's skill documentation](https://developers.openai.com/api/docs/guides/tools-skills).
+Use the same pattern for either of the other packages. Some agents support project-level skills, links, or another installation mechanism; follow the host's documentation and refresh or restart it if needed. This repository does not include an installer or automatically install files when cloned. The [Agent Skills specification](https://agentskills.io/specification) defines the package format, not a universal installation path or identical behaviour across hosts.
 
 Start with the selected skill's `SKILL.md`; it links to the supporting references and templates bundled with that skill.
 
