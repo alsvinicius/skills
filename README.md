@@ -7,6 +7,7 @@ This repository contains reusable skills in the open [Agent Skills format](https
 - [`skills/product-dev-workflow/`](./skills/product-dev-workflow/SKILL.md) — guide product discovery through an MVP-first implementation plan and authorised implementation.
 - [`skills/open-source-preparation/`](./skills/open-source-preparation/SKILL.md) — audit and prepare an existing project for an understandable, privacy-conscious open-source release.
 - [`skills/uniao-sinistra/`](./skills/uniao-sinistra/SKILL.md) — coordinate planning, CLI handoffs, execution and validation across coding agent harnesses.
+- [`skills/claude-code-statusline/`](./skills/claude-code-statusline/SKILL.md) — configure a Claude Code status line showing context, token budget, rate limits, model and cost.
 
 Each skill is packaged in its own directory under `skills/`. The `product-dev-workflow` package keeps its internal skill name for trigger compatibility.
 
@@ -17,6 +18,7 @@ Each skill is packaged in its own directory under `skills/`. The `product-dev-wo
 ├── skills/
 │   ├── product-dev-workflow/  # skill and resources
 │   ├── open-source-preparation/ # skill and resources
+│   ├── claude-code-statusline/  # skill and resources
 │   └── uniao-sinistra/          # cross-harness orchestration skill
 ├── AGENTS.md
 ├── CONTRIBUTING.md
