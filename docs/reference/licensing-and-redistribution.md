@@ -10,7 +10,7 @@ The repository includes skill instruction bundles, Markdown templates and refere
 
 The available Git history begins with the product workflow skill and contains the later preparation changes. Git history and the current tree were checked for credentials, machine-specific personal paths, and personal identifiers; none were found. One evaluation prompt contains an intentionally fictional home path and fictional name.
 
-The `writing-documentation-with-diataxis` skill informed the documentation structure but was not copied into this repository; its redistribution status is therefore outside this repository's licence scope.
+`product-dev-workflow` bundles its own condensed Diátaxis guide, written for this repository, and no longer depends on an external Diátaxis skill. It credits the framework's author and does not copy third-party skill text.
 
 ## Release steps
 

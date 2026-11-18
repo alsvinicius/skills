@@ -5,6 +5,7 @@
 | `skills/product-dev-workflow/SKILL.md` | Entry point for the product workflow skill package. |
 | `skills/product-dev-workflow/assets/templates/` | Templates used by `product-dev-workflow`. |
 | `skills/product-dev-workflow/references/` | Supporting workflow instructions for `product-dev-workflow`. |
+| `skills/product-dev-workflow/assets/templates/agents/` | Validator, documenter, and executor agent templates. |
 | `skills/product-dev-workflow/evals/evals.json` | Evaluation cases; no runner is included. |
 | `skills/open-source-preparation/SKILL.md` | Entry point for the open-source preparation skill. |
 | `skills/open-source-preparation/evals/evals.json` | Evaluation cases; no runner is included. |

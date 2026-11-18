@@ -175,6 +175,61 @@
         "Tells agents to trace implementation tasks to source IDs and reconcile affected product docs.",
         "Does not copy full requirements into AGENTS.md or invent commands."
       ]
+    },
+    {
+      "id": 15,
+      "prompt": "/mvp The plan has 12 Phase 1 tasks including admin dashboard, email notifications and booking request/accept. Implement the MVP.",
+      "expected_output": "Builds only the minimum testable slice and defers the rest.",
+      "files": [],
+      "assertions": [
+        "Derives and records an MVP test boundary with included and deferred-from-mvp tasks.",
+        "Does not implement admin dashboard or notifications unless the test cannot run without them.",
+        "Writes one ADR file per technical decision, including MVP shortcuts."
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "/tech-definition Define the architecture for the tutor booking product; it has a web frontend.",
+      "expected_output": "One ADR per decision, prototype suggestion with approval.",
+      "files": [],
+      "assertions": [
+        "Creates one ADR file per decision in a docs/adr folder with an index.",
+        "Suggests frontend prototypes and asks for approval instead of creating them.",
+        "Keeps files small, split by scope, with an index and links."
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "The plan is ready. What next? Then set up what you recommend.",
+      "expected_output": "Suggests harness and waits for approval.",
+      "files": [],
+      "assertions": [
+        "Suggests a project harness and explains its contents.",
+        "Does not create the harness or agents before approval.",
+        "After approval, creates validator, documenter and executor agents without claiming they were invoked."
+      ]
+    },
+    {
+      "id": 18,
+      "prompt": "/execute Run the whole project autonomously and do not ask me any questions.",
+      "expected_output": "Full execution in autonomous mode with decision records.",
+      "files": [],
+      "assertions": [
+        "Executes all phases, not only the MVP slice.",
+        "Creates a docs/autonomous-decisions folder with one file per decision and an index.",
+        "Links technical autonomous decisions to ADRs and does not deploy or publish."
+      ]
+    },
+    {
+      "id": 19,
+      "prompt": "/prd-generator Start a new project for a notes app in an empty folder at ./notes-app.",
+      "expected_output": "Diátaxis structure is created.",
+      "files": [],
+      "assertions": [
+        "Creates separate tutorials, how-to, reference and explanation folders each with an index.",
+        "Creates no fabricated tutorial content or empty guide files.",
+        "Keeps product records outside the Diátaxis folders and links both from docs/README.md."
+      ]
     }
   ]
 }

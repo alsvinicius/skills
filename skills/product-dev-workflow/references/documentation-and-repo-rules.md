@@ -1,24 +1,43 @@
 # Shared documentation and repository rules
 
-## Diátaxis by reader need
+## Diátaxis is mandatory
 
-Organize tutorials for learning, how-to guides for performing tasks, reference for facts/contracts, and explanation for understanding rationale. Preserve coherent product artifacts. Do not force each artifact into four sections or create empty guides.
+Every project created or maintained by this skill, greenfield or brownfield, must use the Diátaxis documentation framework. This is not optional and does not depend on project size.
 
-When creating, improving, or reviewing Diátaxis documentation, apply the `writing-documentation-with-diataxis` skill. Use its user-need compass to select the documentation type, keep each document focused on one need, and follow the type-specific guidance. State the chosen type and why when presenting documentation work. This skill applies to user-facing Diátaxis docs, not to PRDs, plans, workflow state, or other product-development records.
+Required structure (reuse an existing equivalent location and keep its paths if the repository already has one):
 
-Keep Diátaxis user documentation separate from workflow and planning artifacts. PRDs, journeys, technical definitions, implementation plans, workflow state, and brownfield assessments are product-development records; they are not tutorials, how-to guides, reference, or explanations in the Diátaxis map. Do not move, duplicate, or classify them as Diátaxis content. They may remain in their established locations under `docs/` (for example, `docs/product/` and `docs/planning/`), while user-facing Diátaxis documentation lives in a dedicated location such as `docs/diataxis/`. The index may stay at `docs/README.md` and link to both areas, clearly distinguishing them.
+```text
+docs/
+  README.md              index linking every area below
+  diataxis/
+    README.md            Diátaxis index and the purpose of each axis
+    tutorials/           learning-oriented; README.md index + one file per tutorial
+    how-to/              task-oriented; README.md index + one file per task
+    reference/           information-oriented; README.md index + one file per subject
+    explanation/         understanding-oriented; README.md index + one file per topic
+  adr/                   see adr.md
+```
 
-PRDs/journeys primarily contain business reference and explanation. Technical definitions contain engineering reference and linked decision explanations. Plans contain execution specifications and prioritization rationale. Separate substantial rationale from factual reference with clear links. Create tutorials/how-to guides when genuine reader needs and known behavior support accurate content.
+Rules:
 
-This is a continuing project obligation for both greenfield creation and brownfield reverse engineering. During discovery/initialization, inspect existing documentation, identify actual audiences and documented user needs, then establish or reconcile a Diátaxis map for user-facing documentation. In a new repository, create `docs/README.md` as the index and organize applicable Diátaxis content in an appropriate dedicated location (for example, `docs/diataxis/`); do not mix planning/product-development artifacts into that map or create empty guide files to fill categories. In an existing repository, preserve established paths and navigation, classify useful user-facing content, identify gaps or stale content, and record the actual index and guide paths in workflow state. Use relative links and update them after moves.
+- One folder per axis, each with an index `README.md`. Create all four axis folders and indexes during discovery/initialisation so the structure is stable.
+- One file per point addressed. Never put several tutorials, tasks, reference subjects, or explanations in one file. Keep each file focused on one reader need; split by scope and link related files.
+- Do not fabricate content to fill an axis. An axis whose index says "no content yet, planned: ..." is correct until confirmed behaviour or decisions support real documents. Do not create empty guide files.
+- Link the index of each axis from `docs/diataxis/README.md` and from `docs/README.md`, and keep relative links valid after every move.
 
-Keep this map current in every workflow step. PRD, journey, technical definition, and planning changes may create documentation needs or invalidate existing docs; reconcile affected docs and the index, or record the gap and its next action. During `/mvp`, update relevant Diátaxis content whenever implemented behavior, setup, interfaces, contracts, or rationale changes. Add documentation updates to task DoD and planning tasks when the scope calls for them. Create only content supported by confirmed behavior or decisions; label provisional content and keep it draft when facts remain unresolved. Tutorials teach a learner through one reliable path, how-to guides help a competent user achieve a task, reference describes facts/contracts, and explanations cover rationale. Keep these types separate and link related pieces.
+When creating, improving, or reviewing Diátaxis documentation, follow the [Diátaxis guide](diataxis.md) bundled with this skill. Use its compass to select the documentation type, keep each document focused on one need, and follow the type-specific guidance. State the chosen type and why when presenting documentation work.
+
+Product-development records (PRDs, journeys, technical definitions, implementation plans, workflow state, brownfield assessments, ADRs, autonomous decisions, prototypes) are not tutorials, how-to guides, reference, or explanations. Keep them in their own locations (for example `docs/product/`, `docs/engineering/`, `docs/planning/`, `docs/adr/`) and link them from `docs/README.md`, clearly distinguished from `docs/diataxis/`. Do not move, duplicate, or classify them as Diátaxis content. User-facing Diátaxis content that restates their facts links to the authoritative record instead of copying it.
+
+PRDs and journeys primarily contain business reference and explanation; technical definitions contain engineering reference and links to ADRs; plans contain execution specifications and prioritisation rationale.
+
+In an existing repository, inspect existing documentation, identify audiences and documented needs, classify useful user-facing content into the four axes (keeping existing paths where practical), identify gaps and stale content, and record the actual index and axis paths in workflow state. In a new repository, create the structure above. Keep the map current in every workflow step: product changes may create documentation needs or invalidate existing docs; reconcile affected docs and indexes, or record the gap and next action. During `/mvp` and `/execute`, update relevant Diátaxis files whenever implemented behaviour, setup, interfaces, contracts, or rationale changes, and add documentation updates to task DoD. Create only content supported by confirmed behaviour or decisions; label provisional content and keep it draft.
 
 ## Language, thread closure, and focused artifacts
 
 Use the language the user is using for the active workflow throughout newly written and revised artifacts. Keep the linked set consistent unless the user directs a change; preserve technical identifiers and quoted source material. Before marking any step `ready`, give each discussion thread a disposition: resolved with a source, retired with a reason, or explicitly deferred by the user as `TBD` with owner/source, affected IDs, impact, and revisit point. A merely nonblocking question remains open.
 
-Keep overviews concise and move detailed content into focused documents when separate audiences, purposes, channels, decisions, or execution boundaries make a document hard to scan. Avoid arbitrary size limits and unnecessary fragmentation. Maintain one canonical home per detailed item, stable IDs, cross-links, and an index. Update source revisions, links, and workflow state after moves.
+Do not create large files. Always split by scope (subject, journey, channel, decision, component, or task set) into focused files, and keep an index file that links them and links back. Keep overviews short; put detail in the focused file. Do not wait until a file is hard to read: design the split up front, and split any file that starts to mix purposes. Maintain one canonical home per detailed item, stable IDs, bidirectional cross-links between related files, and an index per folder. Update source revisions, links, and workflow state after moves. Do not fragment into trivial files either: a file should carry a coherent, self-contained scope.
 
 ## Mandatory files at actual project boundaries
 

@@ -1,11 +1,11 @@
 ---
 name: product-dev-workflow
-description: Guide product discovery, including brownfield analysis of an existing repository, into a business PRD, user journeys, technical definition, and an MVP-first implementation plan, then implement the approved MVP through /mvp. Use for creating or revising these artifacts, continuing the workflow, implementing planned MVP tasks, and propagating requirement changes. Ordinary isolated bug fixes and unrelated coding do not require this workflow.
+description: Guide product discovery, including brownfield analysis of an existing repository, into a business PRD, user journeys, technical definition, and an MVP-first implementation plan, then implement the minimum testable MVP through /mvp, set up a project harness and custom agents, and execute the full project through /execute. Use for creating or revising these artifacts, continuing the workflow, implementing planned MVP tasks, and propagating requirement changes. Ordinary isolated bug fixes and unrelated coding do not require this workflow.
 ---
 
 # Product Development Workflow
 
-Use four independently selectable steps within one connected workflow. Trace implementation tasks back to product value.
+Use independently selectable steps within one connected workflow. Trace implementation tasks back to product value.
 
 ## Select a step
 
@@ -18,9 +18,11 @@ Slash names are routing conventions in user messages; this file does not registe
 | `/to-user-journeys` | [Journeys](references/user-journeys.md) | PRD or equivalent requirements | `docs/product/user-journeys.md` |
 | `/tech-definition` | [Technical definition](references/tech-definition.md) | PRD and journeys or equivalents | `docs/engineering/technical-definition.md` |
 | `/planning` | [Planning](references/planning.md) | PRD, journeys, technical definition | `docs/planning/implementation-plan.md` |
-| `/mvp` | [MVP implementation](references/mvp-implementation.md) | Approved MVP plan, repository, and implementation instructions | Working software and updated task/workflow state |
+| `/mvp` | [MVP implementation](references/mvp-implementation.md) | Approved plan, repository, and implementation instructions | Only the minimum software needed to test the product, plus updated task/workflow state |
+| `/harness` | [Harness and agents](references/harness-and-agents.md) | Ready plan (and user approval) | Project harness and validator, documenter, and executor agents |
+| `/execute` | [Full execution](references/full-execution.md) | Ready plan; harness recommended | The complete planned project, with all artifacts kept current |
 
-Read the selected reference and its template, plus [shared documentation rules](references/documentation-and-repo-rules.md). For `/brownfield-discovery`, read the brownfield assessment template and the references/templates for PRD, journeys, technical definition, and planning. Load other steps when needed for prerequisites or changes.
+Read the selected reference and its template, plus [shared documentation rules](references/documentation-and-repo-rules.md) and the [ADR rules](references/adr.md). For `/brownfield-discovery`, read the brownfield assessment template and the references/templates for PRD, journeys, technical definition, and planning. Load other steps when needed for prerequisites or changes.
 
 An explicit step takes priority. For natural language, select the requested artifact. For “continue,” inspect existing artifacts and workflow state for the next incomplete step. Start a new end-to-end request with discovery. Ask one focused question if ambiguity materially affects the work. Finish the requested step; proceed further only when the user's scope includes later steps.
 
@@ -46,10 +48,19 @@ For `/brownfield-discovery`, treat repository code and versioned documentation a
 - Never invent numerical targets, baselines, dates, budgets, capacity, policies, or tool preferences. Mark unknowns explicitly.
 - Close every discussion thread before marking a step ready. Resolve it with a sourced decision, retire it with a reason, or record it as an explicit `TBD` only when the user chose to defer it. “Nonblocking” or “known unknown” is a status, not a disposition. Ask about unresolved material decisions; do not silently carry them into downstream artifacts.
 
+## Cross-cutting rules (every step)
+
+- **ADRs:** record every technical and architectural decision as its own file in `docs/adr/`, with an index. Follow [ADR rules](references/adr.md).
+- **Small files:** never create large files. Split by scope and keep indexes and links between related files. See the document size rules below.
+- **Diátaxis is mandatory** for every project this skill creates or maintains: separate folders for tutorials, how-to, reference, and explanation, each with an index and one file per point. See [shared documentation rules](references/documentation-and-repo-rules.md) and the bundled [Diátaxis guide](references/diataxis.md).
+- **Prototypes:** if the product has a frontend, suggest prototypes to guide development, and create them only if the user approves. See [prototypes](references/prototypes.md).
+- **Harness and agents:** suggest a project harness to guide the development flow, and ask for approval. See [harness and agents](references/harness-and-agents.md).
+- **Autonomous mode:** if the user explicitly asks for a fully autonomous run without questions, decide instead of asking and record each decision as its own file in `docs/autonomous-decisions/`. See [autonomous mode](references/autonomous-mode.md).
+
 ## Language and document size
 
 - Write new artifacts and user-facing sections in the language the user is using for the active workflow. Keep the linked artifact set consistent in that language unless the user asks for another language. Preserve code identifiers, protocol names, and quoted source text as needed.
-- Prefer a short index/overview plus focused documents when an artifact mixes distinct purposes or becomes difficult to review. Split by stable subject, channel, decision group, or independently executable task set; do not split merely to meet an arbitrary word count. Keep IDs stable, add navigation, and update every inbound link when moving content.
+- Do not create large files. Use a short index/overview plus focused documents, designed up front. Split by stable subject, channel, decision, component, or independently executable task set, and do not fragment into trivial files. Keep IDs stable, add navigation, and update every inbound link when moving content.
 - Keep one authoritative home for each detailed requirement, decision, journey, scenario, or task. Summaries should link to that home instead of copying its full content.
 
 ## Artifact and handoff contract
@@ -61,7 +72,7 @@ Statuses: `draft` for incomplete/provisional content; `ready` when completion cr
 
 Use stable IDs: `REQ-001` for requirements, `JRN-001` for journeys, `DEC-001` for technical decisions, `TASK-001` for tasks. Preserve existing IDs, never reuse removed IDs, and mark removed items retired. Link journeys to requirements, decisions to requirements/journeys, and tasks to sources and dependencies. Attach business rules and acceptance criteria to their owning items.
 
-Maintain workflow state using [the template](assets/templates/workflow-state.md): actual artifact paths, revisions, readiness, blockers, deferred technical preferences, and downstream updates. At handoff summarize outputs, remaining decisions, and the next usable step.
+Maintain workflow state using [the template](assets/templates/workflow-state.md): actual artifact paths (including ADR, Diátaxis, prototype, harness, and autonomous-decision indexes), revisions, readiness, blockers, deferred technical preferences, and downstream updates. At handoff summarize outputs, remaining decisions, and the next usable step.
 
 ## Recommend the next step
 
@@ -72,12 +83,14 @@ At the end of every requested workflow step, explicitly recommend what should ha
 | PRD | `/to-user-journeys` |
 | User journeys | `/tech-definition` |
 | Technical definition | `/planning` |
-| Planning | `/mvp` to implement the Phase 1 MVP tasks, following task dependencies |
-| MVP implementation | Validate the release criteria, then recommend release review or the next planned phase |
+| Planning | Suggest the project harness (`/harness`, needs approval); then `/mvp` to build the minimum testable slice, or `/execute` for the whole project |
+| Harness | `/mvp` for a quick testable slice, or `/execute` for the full project |
+| MVP implementation | Test the slice with real users, then `/execute` for the remaining scope |
+| Full execution | Validate every phase's exit criteria, then release review |
 
 If the current artifact is still `draft` or has blockers, first name the specific action needed to complete or unblock it, then identify the subsequent step. If prerequisites are missing, say what must be resolved before that step can proceed reliably. For planning, point to the next unblocked Phase 1 task when the plan identifies one. Recommend without starting the next step; continue only when it is already within the user's request. If workflow state is being maintained, save the recommendation there too. Keep the handoff concise and tied to the artifact produced.
 
-For `/mvp`, work through the authorized MVP plan autonomously within the confirmed product scope and repository rules. Autonomy covers selecting and completing unblocked tasks, using project-defined tools, updating affected docs and state, and proceeding to the next task. It does not authorize inventing product decisions, expanding scope, exposing secrets, incurring material costs, or performing irreversible external actions such as deployment or publication. Pause only when a material decision or an authorization boundary prevents safe progress; continue independent tasks and record the blocker.
+For `/mvp`, build only the minimum needed to test the product (see [MVP implementation](references/mvp-implementation.md)); defer every other planned task. For `/execute`, work through the whole plan. In both cases work autonomously within the confirmed product scope and repository rules: select and complete unblocked tasks, use project-defined tools, update affected docs, ADRs, and state, and proceed to the next task. Autonomy does not authorize inventing product decisions, expanding scope, exposing secrets, incurring material costs, or performing irreversible external actions such as deployment or publication. Pause only when a material decision or an authorization boundary prevents safe progress; continue independent tasks and record the blocker. In autonomous mode, record would-be questions instead of asking.
 
 ## Checkpoint and resume across sessions
 
@@ -105,4 +118,4 @@ If technical constraints make a requirement infeasible, propose a business decis
 
 ## Completion check
 
-Inspect required sections, source links and exact revisions, ID coverage, scenario coverage, thread dispositions, downstream impacts, and documentation navigation. Apply the selected step's completion criteria and shared repository rules. A step cannot be `ready` while an unowned or implicit TBD remains. For planning, inspect every task for agent readiness: bounded outcome, linked source IDs, required inputs, dependencies, allowed choices and constraints, observable DoD evidence, validation command/evidence when known, documentation updates, and a clear stop/escalation condition. If a command or tool is not known, specify how the implementing agent should discover or select it without fabricating project facts. Report outputs and remaining explicitly deferred decisions, then recommend the next workflow step. Document checks do not authorize implementation or deployment, or establish that software tests passed. `/mvp` authorizes implementation only within its defined scope; deployment and publication still require explicit authorization.
+Inspect required sections, source links and exact revisions, ID coverage, scenario coverage, thread dispositions, downstream impacts, and documentation navigation. Apply the selected step's completion criteria and shared repository rules. A step cannot be `ready` while an unowned or implicit TBD remains. For planning, inspect every task for agent readiness: bounded outcome, linked source IDs, required inputs, dependencies, allowed choices and constraints, observable DoD evidence, validation command/evidence when known, documentation updates, and a clear stop/escalation condition. If a command or tool is not known, specify how the implementing agent should discover or select it without fabricating project facts. Report outputs and remaining explicitly deferred decisions, then recommend the next workflow step. Document checks do not authorize implementation or deployment, or establish that software tests passed. `/mvp` authorizes implementation only of the minimum testable slice, and `/execute` only within the planned scope; deployment and publication still require explicit authorization.

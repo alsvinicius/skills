@@ -27,12 +27,13 @@
 [CI/CD, hosting, deployment, observability, recovery, mandatory files.]
 
 ## Decisions and rationale
+One summary per decision; the authoritative record is its own ADR file in `docs/adr/`.
+
 ### DEC-001 — [Decision]
-- Status: [proposed / confirmed]
+- ADR: [link to docs/adr/ADR-0001-slug.md]
+- Status: [proposed / confirmed, as in the ADR]
 - Sources: [REQ/JRN IDs]
-- Decision and alternatives: [options]
-- Rationale and consequences: [tradeoffs]
-- Evidence: [source]
+- One-line summary: [decision]
 - MVP implementation and future extension: [scope]
 
 ## Scope coverage

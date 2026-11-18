@@ -10,7 +10,10 @@
 - Last completed action: [action and saved artifact revision]
 - Next action: [specific question batch or document operation]
 - Recommended next workflow step: [next command/step, or the blocking work needed first]
+- Autonomous mode: [off / on, user instruction and date; link to docs/autonomous-decisions/README.md]
+- MVP test boundary: [included tasks, deferred-from-mvp tasks, how it will be tested, or not defined]
 - MVP implementation progress: [active task, completed task IDs/evidence, validation results, blockers, or not started]
+- Full execution progress: [phase, completed tasks/evidence, blockers, or not started]
 
 ## Interview checkpoint
 
@@ -28,6 +31,16 @@
 | Technical definition | [link] | [revision] | draft | [sources] | [questions or none] |
 | Implementation plan | [link] | [revision] | draft | [sources] | [questions or none] |
 | MVP implementation | [repository paths / task IDs] | [code revision or commit if known] | not-started | [plan revision] | [blockers or none] |
+
+## Project indexes and optional parts
+| Item | Actual path | Status |
+|---|---|---|
+| Diátaxis index and four axis folders | [docs/diataxis/] | [created / reconciled] |
+| ADR index | [docs/adr/README.md] | [created] |
+| Prototypes | [docs/prototypes/README.md or n/a] | [not applicable (no frontend) / suggested / approved / declined / created] |
+| Harness | [docs/harness/README.md or n/a] | [suggested / approved / declined / created] |
+| Agents (validator, documenter, executor) | [paths] | [not created / created] |
+| Autonomous decisions index | [docs/autonomous-decisions/README.md or n/a] | [off / on] |
 
 ## Confirmed decisions and sources
 [Links to authoritative artifact sections/IDs; keep facts without an artifact home here temporarily. Approval only if explicitly given.]
