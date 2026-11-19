@@ -19,7 +19,7 @@ Use when the user asks to execute the whole planned project, not just the MVP. I
 5. Use the Documenter agent when available, or do the same work directly: update Diátaxis docs, indexes, ADR index, workflow state, and revision entries (`docs/revisions/`).
 6. Checkpoint, then continue. Do not ask for confirmation at task boundaries.
 
-Honour all scope and authorisation limits: no product-scope changes, deployment, publication, production data changes, secrets, or material paid services without explicit authorisation. Escalate only what the plan's stop conditions name. In [autonomous mode](autonomous-mode.md), record every would-be question as an autonomous decision instead of asking.
+Honour all scope and authorisation limits: no product-scope changes, deployment, publication, production data changes, secrets, or material paid services without explicit authorisation. Run security checks and tests only inside the approved harness and authorised scope ([product security](security.md)). Escalate only what the plan's stop conditions name. In [autonomous mode](autonomous-mode.md), record every would-be question as an autonomous decision instead of asking.
 
 ## Completion
 

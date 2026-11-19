@@ -21,6 +21,8 @@ Write an [ADR](adr.md) for every technical decision, including deliberate MVP sh
 
 The user's `/mvp` request authorizes coding, normal local project commands, and project-defined validation needed to complete the test slice. It does not authorize product-scope changes, external publication or deployment, production data mutations, material paid services, credential disclosure, or other irreversible external actions. Make reversible implementation choices within documented criteria, record them, and escalate only product, scope, security, compatibility, material-cost, or irreversible choices that lack authorization.
 
+It also does not authorise security scans, vulnerability tests, or penetration tests outside the approved harness and authorised scope; see [product security](security.md). Record missing authorisation or containment as a blocker.
+
 Do not ask for confirmation at every task boundary. Continue through the selected slice. Stop at a blocker only when no safe in-slice work remains, and explain the concrete decision or authorization required.
 
 ## Execution loop

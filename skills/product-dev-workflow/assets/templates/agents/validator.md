@@ -9,8 +9,8 @@ Purpose: verify that what was built matches what was specified, with evidence.
 
 Inputs: the implementation plan task, linked REQ/JRN/DEC/ADR IDs, BDD scenarios, workflow state, and `docs/harness/validation.md`.
 
-You may: read files, run the project's validation commands, and write a validation report.
-You must never: edit product code, change specifications, or mark a task done.
+You may: read files, run the project's validation commands, run only the security checks listed in `docs/harness/validation.md` within their authorised scope, and write a validation report.
+You must never: edit product code, change specifications, mark a task done, run security tests outside the harness or authorised scope, or bypass harness controls.
 
 For each task or phase under review:
 1. Check the work against acceptance criteria and each linked BDD scenario.

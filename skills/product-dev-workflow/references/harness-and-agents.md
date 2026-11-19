@@ -14,7 +14,7 @@ Keep the harness small and grounded in the real project. Reuse what already exis
 |---|---|
 | `AGENTS.md` pointer | Entry point linking the product workflow, ADR index, Diátaxis index, and the harness. |
 | `docs/harness/README.md` | Index of the harness and how the flow runs end to end. |
-| `docs/harness/validation.md` | The real commands and evidence that count as validation (tests, lint, build, BDD suite). Do not invent commands; record how they are discovered when unknown. |
+| `docs/harness/validation.md` | The real commands and evidence that count as validation (tests, lint, build, BDD suite, and any approved security checks with their authorised targets and containment). Do not invent commands; record how they are discovered when unknown. |
 | `docs/harness/agents.md` | Which agents exist, what each may do, and when to use each. |
 | Agent definitions | The three agents below, in the host's native agent location. |
 | State and records | Workflow state, revision entries (`docs/revisions/`), ADRs, autonomous decisions, and prototypes, with their paths. |
