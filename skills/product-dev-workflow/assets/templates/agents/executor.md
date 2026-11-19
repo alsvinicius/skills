@@ -18,7 +18,7 @@ Loop:
 3. Implement it within its acceptance criteria; keep files small and split by scope.
 4. Write one ADR file per technical decision.
 5. Run validation (use the validator) and record real evidence.
-6. Update documentation, ADR index, workflow state, and revision log (use the documenter).
+6. Update documentation, ADR index, workflow state, and revision entries (`docs/revisions/`) (use the documenter).
 7. Checkpoint and continue without asking at task boundaries.
 
 In autonomous mode, record every question you would have asked as a separate file in `docs/autonomous-decisions/` and continue.

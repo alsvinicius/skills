@@ -73,6 +73,6 @@ Use a short project-specific section such as the following, adapting links and w
 ## Maintenance
 
 Every artifact revision updates metadata, source references, related links, index, and workflow state. Reconcile downstream artifacts or mark them `needs-review`. Implementation task DoD names affected Diátaxis docs and requires updates alongside behavior changes. Establish this contract without claiming future documentation has already been maintained.
-Store change history in a separate central project log (normally `docs/revision-history.md`), organized by artifact path. Link each revisioned artifact to its log section and append an entry whenever its revision changes; keep the artifact body focused on current content. Preserve an existing equivalent repository convention.
+Store change history in `docs/revisions/vN/{product,tech}.md` following [project revisions](revisions.md). Each revisioned artifact links to its entry and keeps only its own `Revision: N`; append the entry whenever a revision changes. Preserve an existing equivalent repository convention.
 
 Apply the main skill's checkpoint rules during interviews as well as at artifact completion. Save meaningful answers in draft artifacts and maintain state as a resume index. Record next actions and unanswered questions without duplicating authoritative content. On resumption, inspect actual artifacts for external changes before trusting the saved summary.

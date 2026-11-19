@@ -230,6 +230,39 @@
         "Creates no fabricated tutorial content or empty guide files.",
         "Keeps product records outside the Diátaxis folders and links both from docs/README.md."
       ]
+    },
+    {
+      "id": 20,
+      "prompt": "/prd-generator New project: a clinic scheduling product. Continue to the next step after the PRD is ready.",
+      "expected_output": "Recommends and builds the DDD view before journeys.",
+      "files": [],
+      "assertions": [
+        "Starts a domain glossary during the PRD interview.",
+        "Recommends /domain-model next and produces subdomains, ubiquitous language, bounded contexts and a context map in docs/domain.",
+        "Journeys and technical definition reuse its language and contexts."
+      ]
+    },
+    {
+      "id": 21,
+      "prompt": "/tech-definition The PRD, domain model and journeys are ready. Generate the architecture diagrams.",
+      "expected_output": "Uses draw.io tooling or suggests install; one multi-page file.",
+      "files": [],
+      "assertions": [
+        "Checks for a draw.io skill or MCP and suggests installing one if unavailable, without inventing install commands.",
+        "Produces a single architecture.drawio with one page per diagram and a README index.",
+        "Does not claim diagrams were rendered if only XML was written."
+      ]
+    },
+    {
+      "id": 22,
+      "prompt": "The requirement REQ-004 was retired and DEC-002 changed after test feedback. Update the project.",
+      "expected_output": "Creates a versioned revision entry.",
+      "files": [],
+      "assertions": [
+        "Writes docs/revisions/v2/product.md and tech.md with motivation, artifacts changed, impact and decisions.",
+        "Links each artifact's Revision history to its entry and does not embed a changelog in it.",
+        "Updates the revisions index and workflow state."
+      ]
     }
   ]
 }

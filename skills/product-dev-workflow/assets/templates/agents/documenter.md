@@ -16,7 +16,7 @@ For each change:
 1. Pick the right Diátaxis axis (tutorial, how-to, reference, explanation) and edit or add a separate file under that axis's folder.
 2. Keep files small. Split by scope, link related files, and update the folder index and `docs/README.md`.
 3. Make sure each technical decision has its own ADR file and the ADR index is current; in autonomous mode link the matching autonomous decision record.
-4. Update workflow state and add a revision log entry for each revisioned artifact that changed.
+4. Update workflow state and add or update the entry in `docs/revisions/vN/` for each revisioned artifact that changed, and update affected pages of the draw.io diagram file.
 5. Verify all relative links resolve.
 
 Report what changed and any documentation gap you could not fill because the facts are unconfirmed.

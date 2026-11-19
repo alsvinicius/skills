@@ -16,7 +16,7 @@ Use when the user asks to execute the whole planned project, not just the MVP. I
 2. Take the next unblocked task across all phases, in dependency order. Implement it fully within its acceptance criteria and BDD scenarios.
 3. Write an [ADR](adr.md) for each technical or architectural decision made.
 4. Run validation. Use the Validator agent when available and record the evidence. Do not claim a pass that did not happen.
-5. Use the Documenter agent when available, or do the same work directly: update Diátaxis docs, indexes, ADR index, workflow state, and revision log.
+5. Use the Documenter agent when available, or do the same work directly: update Diátaxis docs, indexes, ADR index, workflow state, and revision entries (`docs/revisions/`).
 6. Checkpoint, then continue. Do not ask for confirmation at task boundaries.
 
 Honour all scope and authorisation limits: no product-scope changes, deployment, publication, production data changes, secrets, or material paid services without explicit authorisation. Escalate only what the plan's stop conditions name. In [autonomous mode](autonomous-mode.md), record every would-be question as an autonomous decision instead of asking.

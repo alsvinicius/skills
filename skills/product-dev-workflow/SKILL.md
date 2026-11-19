@@ -15,6 +15,7 @@ Slash names are routing conventions in user messages; this file does not registe
 |---|---|---|---|
 | `/brownfield-discovery` | [Brownfield discovery](references/brownfield-discovery.md) | Existing product repository and its versioned documentation | Brownfield assessment, PRD, journeys, technical definition, and implementation plan |
 | `/prd-generator` | [PRD](references/prd-generator.md) | Idea or product evidence | `docs/product/prd.md` |
+| `/domain-model` | [Domain model](references/domain-model.md) | PRD or equivalent business evidence | `docs/domain/` (DDD: subdomains, ubiquitous language, bounded contexts, context map) |
 | `/to-user-journeys` | [Journeys](references/user-journeys.md) | PRD or equivalent requirements | `docs/product/user-journeys.md` |
 | `/tech-definition` | [Technical definition](references/tech-definition.md) | PRD and journeys or equivalents | `docs/engineering/technical-definition.md` |
 | `/planning` | [Planning](references/planning.md) | PRD, journeys, technical definition | `docs/planning/implementation-plan.md` |
@@ -24,7 +25,7 @@ Slash names are routing conventions in user messages; this file does not registe
 
 Read the selected reference and its template, plus [shared documentation rules](references/documentation-and-repo-rules.md) and the [ADR rules](references/adr.md). For `/brownfield-discovery`, read the brownfield assessment template and the references/templates for PRD, journeys, technical definition, and planning. Load other steps when needed for prerequisites or changes.
 
-An explicit step takes priority. For natural language, select the requested artifact. For “continue,” inspect existing artifacts and workflow state for the next incomplete step. Start a new end-to-end request with discovery. Ask one focused question if ambiguity materially affects the work. Finish the requested step; proceed further only when the user's scope includes later steps.
+An explicit step takes priority. For natural language, select the requested artifact. For “continue,” inspect existing artifacts and workflow state for the next incomplete step. Start a new end-to-end request with discovery, and begin the domain model as business terms emerge. Ask one focused question if ambiguity materially affects the work. Finish the requested step; proceed further only when the user's scope includes later steps.
 
 ## Inspect before writing
 
@@ -53,6 +54,9 @@ For `/brownfield-discovery`, treat repository code and versioned documentation a
 - **ADRs:** record every technical and architectural decision as its own file in `docs/adr/`, with an index. Follow [ADR rules](references/adr.md).
 - **Small files:** never create large files. Split by scope and keep indexes and links between related files. See the document size rules below.
 - **Diátaxis is mandatory** for every project this skill creates or maintains: separate folders for tutorials, how-to, reference, and explanation, each with an index and one file per point. See [shared documentation rules](references/documentation-and-repo-rules.md) and the bundled [Diátaxis guide](references/diataxis.md).
+- **Domain model (DDD):** start a Domain-Driven Design view at the beginning of project definition and use its ubiquitous language and bounded contexts in every later artifact. See [domain model](references/domain-model.md).
+- **Revisions:** record every revision round in `docs/revisions/vN/{product,tech}.md`. See [project revisions](references/revisions.md).
+- **Diagrams:** generate architecture, sequence, and related diagrams as one draw.io file with a page per diagram, using a draw.io skill or MCP if available, otherwise suggest installing one. See [diagrams](references/diagrams.md).
 - **Prototypes:** if the product has a frontend, suggest prototypes to guide development, and create them only if the user approves. See [prototypes](references/prototypes.md).
 - **Harness and agents:** suggest a project harness to guide the development flow, and ask for approval. See [harness and agents](references/harness-and-agents.md).
 - **Autonomous mode:** if the user explicitly asks for a fully autonomous run without questions, decide instead of asking and record each decision as its own file in `docs/autonomous-decisions/`. See [autonomous mode](references/autonomous-mode.md).
@@ -66,7 +70,7 @@ For `/brownfield-discovery`, treat repository code and versioned documentation a
 ## Artifact and handoff contract
 
 Use bundled templates as section contracts, adapting formatting to the repository. Each artifact records status, revision, sources with revisions, related links, decisions, assumptions, and the disposition of every open thread. Brownfield-derived artifacts link to the assessment and its evidence; the assessment distinguishes observed facts, inferences, confirmed decisions, and unresolved questions.
-Keep revision histories in a separate central project log (normally `docs/revision-history.md`), with a section keyed by each artifact path. Every revisioned artifact links to its own section; add an entry whenever its revision changes. Do not embed a growing change log in the PRD, journeys, technical definition, implementation plan, or workflow state. Follow an existing repository convention when it already provides an equivalent central log.
+Keep revision histories in `docs/revisions/vN/{product,tech}.md` with an index, following [project revisions](references/revisions.md): motivation, artifacts changed, impact, and decisions per round. Every revisioned artifact links to its entry; do not embed a growing change log in the PRD, domain model, journeys, technical definition, implementation plan, or workflow state. Follow an existing repository convention when it already provides an equivalent.
 
 Statuses: `draft` for incomplete/provisional content; `ready` when completion criteria are met and every thread has a disposition; `needs-review` when source changes may invalidate content. Readiness is a content assessment, not user approval. Record explicit approval separately only if it occurred. A deferred `TBD` must name its owner/source, affected IDs, impact, and revisit point; it may remain only when the user explicitly chose to defer it. Otherwise resolve or ask.
 
@@ -80,7 +84,8 @@ At the end of every requested workflow step, explicitly recommend what should ha
 
 | Completed step | Recommended next step |
 |---|---|
-| PRD | `/to-user-journeys` |
+| PRD | `/domain-model` |
+| Domain model | `/to-user-journeys` |
 | User journeys | `/tech-definition` |
 | Technical definition | `/planning` |
 | Planning | Suggest the project harness (`/harness`, needs approval); then `/mvp` to build the minimum testable slice, or `/execute` for the whole project |

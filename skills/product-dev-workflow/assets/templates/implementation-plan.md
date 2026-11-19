@@ -2,7 +2,7 @@
 
 - Status: draft
 - Revision: 1
-- Revision history: [central project revision log, artifact path/section]
+- Revision history: [link to the entry in docs/revisions/vN/tech.md]
 - Updated: [date]
 - Sources and revisions: [actual links, source revisions, or conversation evidence]
 - Related artifacts: [workflow state and relevant artifacts]

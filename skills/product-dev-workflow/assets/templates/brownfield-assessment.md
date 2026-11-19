@@ -2,7 +2,7 @@
 
 - Status: draft
 - Revision: 1
-- Revision history: [central project revision log, artifact path/section]
+- Revision history: [link to the entry in docs/revisions/vN/product.md]
 - Updated: [date]
 - Repository and source revision: [actual repository and commit/revision, or unavailable]
 - Sources and revisions: [versioned docs, existing artifacts, and inspected code paths]

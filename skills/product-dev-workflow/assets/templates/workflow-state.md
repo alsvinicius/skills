@@ -2,7 +2,7 @@
 
 - Product / repository: [actual destination]
 - Updated: [date]
-- Revision history: [central project revision log, artifact path/section]
+- Revision history: [docs/revisions/README.md and current vN]
 - Language used by the user for this workflow: [language]
 - Current step: [step]
 - Requested scope: [selected step or authorized end-to-end workflow]
@@ -27,6 +27,7 @@
 |---|---|---|---|---|---|
 | Brownfield assessment | [link or not applicable] | [revision] | [draft / ready / needs-review / not applicable] | [repository and documentation revisions] | [questions or none] |
 | PRD | [link] | [revision] | draft | [sources] | [questions or none] |
+| Domain model (DDD) | [docs/domain/README.md] | [revision] | draft | [sources] | [questions or none] |
 | Journeys | [link] | [revision] | draft | [sources] | [questions or none] |
 | Technical definition | [link] | [revision] | draft | [sources] | [questions or none] |
 | Implementation plan | [link] | [revision] | draft | [sources] | [questions or none] |
@@ -40,6 +41,8 @@
 | Prototypes | [docs/prototypes/README.md or n/a] | [not applicable (no frontend) / suggested / approved / declined / created] |
 | Harness | [docs/harness/README.md or n/a] | [suggested / approved / declined / created] |
 | Agents (validator, documenter, executor) | [paths] | [not created / created] |
+| Diagrams (single draw.io file) | [docs/diagrams/architecture.drawio and README.md, or n/a] | [tool available / install suggested / fallback chosen / created] |
+| Revisions index | [docs/revisions/README.md] | [current vN] |
 | Autonomous decisions index | [docs/autonomous-decisions/README.md or n/a] | [off / on] |
 
 ## Confirmed decisions and sources
