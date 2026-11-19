@@ -9,7 +9,7 @@
 - Language: [language used by the user for this workflow]
 
 ## Constraints and preferences
-[Confirmed constraints, preferences, capacity, budget, unknowns.]
+[Confirmed constraints, preferences, capacity, budget ceiling, unknowns. Cost detail lives in the cost model when material.]
 
 ## Architecture and project boundaries
 [Components, responsibilities, actual/proposed subprojects, MVP/future scope.]
@@ -18,13 +18,14 @@
 [Ownership, lifecycle, contracts, failure behavior, dependencies.]
 
 ## Security and quality requirements
-[Access, privacy, compliance, performance, reliability, accessibility, targets.]
+[Access, privacy, compliance, reliability, accessibility; performance and observability only when material; confirmed targets only.]
 
 ## Development and verification
 [Toolchain, workflow, testing strategy, known commands or pending decisions.]
 
 ## Delivery and operations
-[CI/CD, hosting, deployment, observability, recovery, mandatory files.]
+[CI/CD, hosting, deployment, recovery, mandatory files; observability when material.]
+Cost model: [link to docs/engineering/cost-model.md, or "not material" with reason]
 
 ## Decisions and rationale
 One summary per decision; the authoritative record is its own ADR file in `docs/adr/`.

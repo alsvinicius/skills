@@ -30,6 +30,7 @@
 - BDD scenarios: [stable scenario IDs to automate/validate]
 - Validation: [known commands and expected evidence, or a grounded discovery instruction]
 - Stop condition: [specific blocker or decision requiring the user]
+- Cost gate (when cost is material): [COST IDs and decision point this task must respect; "paid-spend gate: no paid account, plan, or commitment without user approval" when relevant; or none]
 - Definition of Done: [observable completion evidence, verification, docs, deployment if applicable]
 - Expected results: [measurable outcomes]
 - Affected documentation: [paths]

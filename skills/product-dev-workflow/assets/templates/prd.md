@@ -28,7 +28,7 @@
 - Source: [evidence]
 
 ## Business constraints and risks
-[Policies, quality expectations, dependencies, risks.]
+[Policies, quality expectations, dependencies, risks; confirmed budget ceilings or cost constraints when material, without prices or providers.]
 
 ## Confirmed decisions, assumptions, and open questions
 [Separate facts from assumptions. Resolve or retire each thread; use TBD only when the user explicitly deferred it, with source/owner, affected IDs, impact, and revisit point.]

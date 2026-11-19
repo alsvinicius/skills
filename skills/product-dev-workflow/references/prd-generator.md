@@ -6,6 +6,10 @@ Interview about macro idea, target users, current pain and alternatives, busines
 
 Cover security during discovery: assets and data, actors and trust boundaries, abuse and threat concerns, and unknowns, following [product security](security.md). Express material concerns as `REQ` acceptance criteria without prescribing technology.
 
+When reliability, failure diagnosis, or performance is requested or material, follow [observability and performance](observability-and-performance.md): elicit user-visible outcomes, express confirmed ones as `REQ` acceptance criteria, and record unknown targets as open questions. Do not add generic observability requirements or numerical targets.
+
+When cost is requested or material, follow [project costs](project-costs.md) for business-level constraints only: confirmed budget ceilings with their period and approver, and who pays. Record unknown figures as open questions. Do not add prices, providers, or infrastructure to the PRD.
+
 Capture domain terms the business uses as they emerge and start the [domain model](domain-model.md) glossary; use those terms in the PRD.
 
 Describe capabilities and observable business outcomes. Exclude languages, frameworks, APIs, schemas, and cloud choices. Business constraints such as a required jurisdiction may constrain technology without prescribing it.
