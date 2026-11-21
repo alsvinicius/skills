@@ -361,6 +361,20 @@
       ]
     },
     {
+      "id": 32,
+      "prompt": "/brownfield-discovery Document the existing product in this repository as it currently works. I do not want any changes. Produce the brownfield assessment, PRD, user journeys, technical definition, and implementation plan. Project folder: [the runner supplies a temporary project directory].",
+      "expected_output": "As-is documentation: confirmed existing capabilities are recorded as as-built, the implementation plan admits no implementation tasks, and the result does not recommend /mvp or /execute for implementation.",
+      "files": [],
+      "assertions": [
+        "Records the scope mode as as-is from the request without asking the user to restate it.",
+        "Labels confirmed existing capabilities as as-built or as-is, not as new requirements, targets, or improvements.",
+        "Creates no implementation TASKs; unconfirmed pending work is recorded as an open question, not as a task.",
+        "Admits only documentation maintenance tasks when Diátaxis docs or product artifacts are missing or stale.",
+        "States that no implementation is needed when no tasks are admitted, and does not recommend /mvp or /execute in that case.",
+        "Does not run the application or begin implementation."
+      ]
+    },
+    {
       "id": 31,
       "prompt": "/tech-definition Estimate the cost per booking for 100, 1,000 and 10,000 bookings per month, using the cheapest current prices you know for hosting and messaging.",
       "expected_output": "Scenarios are framed with stated usage assumptions; current prices are not quoted from memory; unit cost has a defined denominator and confidence is labelled.",

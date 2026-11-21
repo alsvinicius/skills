@@ -37,7 +37,7 @@ An explicit step takes priority. For natural language, select the requested arti
 
 Accept equivalent user-supplied artifacts and explain how they satisfy the input contract. Identify specific gaps and ask the smallest useful batch of questions. Continue independent work or save a clearly labeled draft. Do not invent decisions to complete a later step or silently run all earlier interviews.
 
-For `/brownfield-discovery`, treat repository code and versioned documentation as evidence about the existing product. Inspect statically; do not run the application or infer runtime behavior that the sources do not establish. Keep observed behavior, inferred intent, confirmed product decisions, and unresolved questions distinct. Do not turn existing behavior into a requirement without confirmation that it is desired. This route includes all four downstream artifacts, so proceed through them in order when their inputs are sufficient; checkpoint and ask focused questions at material product decision points. A blocker in one artifact must not prevent unrelated evidence gathering, but do not mark dependent artifacts ready while it remains unresolved.
+For `/brownfield-discovery`, treat repository code and versioned documentation as evidence about the existing product. Inspect statically; do not run the application or infer runtime behavior that the sources do not establish. Keep observed behavior, inferred intent, confirmed product decisions, and unresolved questions distinct. Do not turn existing behavior into a requirement without confirmation that it is desired. Determine the scope mode first (`as-is`, `change`, or `rebuild`): in `as-is` mode, confirmed existing behaviour is recorded as `as-built` and admits no implementation tasks (see [brownfield discovery](references/brownfield-discovery.md) and [task admission](references/planning.md#task-admission-for-existing-products)). This route includes all four downstream artifacts, so proceed through them in order when their inputs are sufficient; checkpoint and ask focused questions at material product decision points. A blocker in one artifact must not prevent unrelated evidence gathering, but do not mark dependent artifacts ready while it remains unresolved.
 
 ## Interview and decision handling
 
@@ -91,7 +91,7 @@ At the end of every requested workflow step, explicitly recommend what should ha
 | Domain model | `/to-user-journeys` |
 | User journeys | `/tech-definition` |
 | Technical definition | `/planning` |
-| Planning | Suggest the project harness (`/harness`, needs approval); then `/mvp` to build the minimum testable slice, or `/execute` for the whole project |
+| Planning | Suggest the project harness (`/harness`, needs approval); then `/mvp` to build the minimum testable slice, or `/execute` for the whole project. For an `as-is` plan with no admitted tasks, report that no implementation is needed instead |
 | Harness | `/mvp` for a quick testable slice, or `/execute` for the full project |
 | MVP implementation | Test the slice with real users, then `/execute` for the remaining scope |
 | Full execution | Validate every phase's exit criteria, then release review |

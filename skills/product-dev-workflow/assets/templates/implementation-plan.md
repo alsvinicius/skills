@@ -38,7 +38,7 @@
 [Repeat tasks and add phases according to value and dependencies.]
 
 ## Full scope coverage
-| Requirement / journey | Phase/tasks, deferral, or retirement | Rationale |
+| Requirement / journey | Phase/tasks, deferral, retirement, or `as-built (no task)` | Rationale |
 |---|---|---|
 
 ## Confirmed decisions, assumptions, and open questions

@@ -6,6 +6,7 @@
 - Language used by the user for this workflow: [language]
 - Current step: [step]
 - Requested scope: [selected step or authorized end-to-end workflow]
+- Brownfield scope mode: [as-is / change / rebuild, with the source of the decision; or not applicable]
 - Current activity: [interview / drafting / reconciliation / handoff]
 - Last completed action: [action and saved artifact revision]
 - Next action: [specific question batch or document operation]

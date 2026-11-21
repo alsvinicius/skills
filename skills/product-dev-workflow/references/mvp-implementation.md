@@ -2,6 +2,8 @@
 
 Use this step when the user invokes `/mvp`, asks to implement the planned MVP, or resumes an active MVP implementation. Read the repository's `AGENTS.md` and equivalent local instructions first. Also read the ready implementation plan, relevant requirements, user journeys, technical definition, and workflow state. If required inputs are missing or stale, inspect actual content and identify the specific gap; do not treat a `ready` label or revision number as sufficient by itself.
 
+If the plan admits no implementation tasks (for example, an `as-is` brownfield documentation plan), stop and report that no MVP is needed. Do not build anything to create an MVP; only admitted documentation tasks may be executed.
+
 ## Scope: the minimum necessary to test the product
 
 `/mvp` builds only the smallest possible slice that lets the product be tested by real users or against its core hypothesis. It is not "implement everything in Phase 1". Do not build anything that is not needed for that test, even if it is planned, nice to have, or cheap.

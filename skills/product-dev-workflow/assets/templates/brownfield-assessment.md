@@ -5,6 +5,7 @@
 - Revision history: [link to the entry in docs/revisions/vN/product.md]
 - Updated: [date]
 - Repository and source revision: [actual repository and commit/revision, or unavailable]
+- Scope mode: [as-is / change / rebuild, and the user decision or request that set it]
 - Sources and revisions: [versioned docs, existing artifacts, and inspected code paths]
 - Related artifacts: [workflow state and generated product artifacts]
 - Language: [language used by the user for this workflow]
@@ -21,7 +22,11 @@
 - Related IDs: [other EVD, REQ, JRN, DEC, or TASK IDs]
 
 ## Existing capabilities and user flows
-[Capabilities, actors, triggers, outcomes, rules, and exceptions supported by sources. Label inferences and distinguish desired behavior as unconfirmed until explicitly decided.]
+| Capability or flow | Status | Evidence | Actors, triggers, outcomes, rules, exceptions |
+|---|---|---|---|
+| [capability] | [as-built (confirmed) / gap (change requested) / pending (confirmed unfinished work) / open] | [EVD IDs] | [supported by sources; label inferences; desired behaviour stays unconfirmed until decided] |
+
+Only `gap` and `pending` rows admit implementation tasks (see [planning](../../references/planning.md#task-admission-for-existing-products)).
 
 ## Systems, data, integrations, and constraints
 [Only facts supported by repository evidence; link each material finding to EVD IDs. Do not include secret values or personal data.]
