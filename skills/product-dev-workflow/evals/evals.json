@@ -385,6 +385,19 @@
         "Defines the cost-per-booking denominator and the period, and labels confidence for each line.",
         "Claims no saving or cheapest option that no source supports."
       ]
+    },
+    {
+      "id": 33,
+      "prompt": "We are mid-implementation in an existing product project with a ready PRD at revision 2 and a ready technical definition at revision 1. Without any slash command, the user asks for three changes in one conversation: (a) REQ-003 acceptance criterion now requires confirmation within 5 minutes, (b) DEC-004 switches from a single-tenant to a per-school schema, (c) the cancel button label changes. Implement the change and keep the project current.",
+      "expected_output": "Treats (a) and (b) as revision content changes, creates one shared revision round, and leaves the cosmetic change (c) as code-only with no artifact revision.",
+      "files": [],
+      "assertions": [
+        "Writes docs/revisions/v2/product.md and tech.md (or only the file whose artifacts changed) with motivation, artifacts changed, impact and decisions, without waiting for a slash command or a size-based exemption.",
+        "Bumps the PRD from revision 2 to 3 and the technical definition or DEC record from revision 1 to 2, and links each artifact's Revision history to its entry.",
+        "Updates docs/revisions/README.md and workflow state in the same step, and marks dependent artifacts or tasks needs-review where reconciliation is unresolved.",
+        "Does not create an entry for the label-only change and does not embed a changelog in the artifacts.",
+        "Does not treat the implementation as complete until the revision entry exists."
+      ]
     }
   ]
 }

@@ -34,7 +34,7 @@ Do not ask for confirmation at every task boundary. Continue through the selecte
 3. Implement the smallest coherent change that makes the test slice work and meets the task's required acceptance criteria and acceptance criteria. Preserve existing conventions and unrelated user changes. Keep each scenario ID linked from the task aligned with the corresponding journey and requirement.
 4. Automate and run the task's linked BDD scenarios as part of the appropriate project suite. Run project-defined checks relevant to the change. If no checks are defined, inspect project configuration and select proportionate checks within the task's constraints; document the command and evidence. Do not claim checks passed unless they ran successfully.
 5. Update affected Diátaxis documentation (separate file per point, under the axis folder), following the [Diátaxis guide](diataxis.md) to select and write the right documentation type. Also update required repository guidance files when actually affected, task status, and workflow state. Keep `AGENTS.md` as a concise pointer to the authoritative product artifacts and their change rules; update it only when its links or durable project guidance change. Record evidence for Definition of Done and any failed or skipped checks.
-6. Reconcile actual changes against the source requirements, journeys, and BDD scenario IDs. If implementation reveals a thread, resolve it within the task's documented authority or record the affected IDs, impact, and required decision; do not silently carry an implicit TBD forward. If behavior or scope must change, stop that change and request the decision.
+6. Reconcile actual changes against the source requirements, journeys, and BDD scenario IDs. If implementation reveals a thread, resolve it within the task's documented authority or record the affected IDs, impact, and required decision; do not silently carry an implicit TBD forward. If behavior or scope must change, stop that change and request the decision. When a change that the user has authorised alters a requirement, criterion, business rule, decision, or scope item, increment the affected artifact's revision and write its entry in `docs/revisions/` in the same step, before updating workflow state ([project revisions](revisions.md)).
 7. Select the next unblocked task inside the MVP test boundary and repeat. Keep files small: split by scope and link them with an index. Checkpoint state after each task or meaningful interruption so another session can resume without repeating completed work.
 
 ## Workflow state during implementation
@@ -48,7 +48,7 @@ Keep `Current step` as `/mvp` and record:
 - blocked task IDs, reason, required decision/input, and independent work remaining;
 - next action and recommended next workflow step.
 
-Mark a task complete only when its Definition of Done is supported by evidence. Keep blocked or partially implemented tasks open; report partial changes accurately. Update artifact revisions and source links only after reconciliation.
+Mark a task complete only when its Definition of Done is supported by evidence and every artifact revision it caused has its entry in `docs/revisions/`. Keep blocked or partially implemented tasks open; report partial changes accurately. Update artifact revisions and source links only after reconciliation.
 
 ## Completion
 
