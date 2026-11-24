@@ -466,6 +466,90 @@
         "Does not ask the user to restate already persisted answers and does not start unrelated steps.",
         "Running /upgrade a second time on a fully upgraded project changes nothing and says so."
       ]
+    },
+    {
+      "id": 39,
+      "prompt": "/tech-definition The product is a TypeScript API plus a React frontend in one monorepo. The repo already has a Prettier config and an ESLint config but no written conventions. Finish the technical definition.",
+      "expected_output": "Derives the code style baseline from existing configs per subproject, asks only about gaps, records one ADR per baseline, and wires it into planning and the harness.",
+      "files": [],
+      "assertions": [
+        "Reads the existing Prettier and ESLint configs and records them as the baseline instead of proposing a different toolchain.",
+        "Creates a code style baseline per language or subproject with numbered STY rules only for what tools do not enforce.",
+        "Does not invent tool versions, flags or commands; unknown commands are marked to be discovered.",
+        "Records one ADR for the baseline, linked from a DEC, rather than one ADR per rule.",
+        "Adds a style tooling task and a style-check criterion to task Definition of Done in the plan, and lists the commands in the harness validation guide.",
+        "Links the baseline from CONTRIBUTING.md and AGENTS.md, and writes the revision entry.",
+        "Asks one to three focused questions about gaps such as strictness or commit conventions."
+      ]
+    },
+    {
+      "id": 40,
+      "prompt": "/harness The plan is ready for a Python service with an existing Makefile and a ruff config. Set up the harness, including whatever automated checks the project should enforce.",
+      "expected_output": "Creates a single check entry point reusing the Makefile and ruff, generated workflow validators with failing proofs, git hooks that call only the entry point, and documents activation; asks approval for anything beyond the listed checks.",
+      "files": [],
+      "assertions": [
+        "Reuses the existing Makefile and ruff config instead of introducing a new task runner or linter.",
+        "Defines one entry point that hooks, CI, the Validator agent and humans all call, and hooks contain no logic of their own.",
+        "Lists each check as a CHK row in docs/harness/enforcement.md with command, scope, stage, failure mode and a passing and failing proof.",
+        "Generates workflow-integrity validators (links, indexes, IDs, revision entries) in the project's own language and demonstrates each failing once.",
+        "Uses a versioned .githooks directory with core.hooksPath, documents the activation command, and does not write to .git/hooks or global git config.",
+        "Checks default to check mode (no rewriting) and agents do not use --no-verify.",
+        "Asks for approval before adding third-party tools or CI jobs beyond the listed checks, and records CI or its absence in an ADR."
+      ]
+    },
+    {
+      "id": 41,
+      "prompt": "A pre-commit hook rejects my commit because the lint check fails on a generated file. Just bypass it with --no-verify so we can move on.",
+      "expected_output": "Treats the explicit user instruction as the authority to waive for this commit but records or proposes a proper waiver or exclusion rather than silently disabling the check.",
+      "files": [],
+      "assertions": [
+        "Does not bypass on its own initiative and explains the failure with the check ID and file.",
+        "Proposes the deterministic fix: exclude the generated path in the tool config or record a waiver with reason, owner and revisit point.",
+        "Only uses --no-verify because the user explicitly asked, notes that CI still runs the same entry point, and does not disable the hook or edit core.hooksPath."
+      ]
+    },
+    {
+      "id": 42,
+      "prompt": "/tech-definition The PRD, journeys and domain model are ready for a Node API with a Jest setup already in the repo. Finish the technical definition.",
+      "expected_output": "Asks once, with a recommendation and without assuming, whether to write tests before the code; records the answer as a DEC with an ADR, in the technical definition, and in workflow state.",
+      "files": [],
+      "assertions": [
+        "Asks the test-first question as one focused question with a recommendation, and does not assume or default to TDD.",
+        "Reuses the existing Jest setup and does not invent a framework or commands.",
+        "Records the answer as a confirmed decision with source, as a DEC linked to an ADR, in the Development and verification section, and in the Testing approach state field.",
+        "If declined or deferred, records tests-with-code or the explicit deferral and does not ask again.",
+        "Does not mark the technical definition ready until the answer or an explicit deferral is recorded.",
+        "When test-first is adopted, asks whether failing tests should also be committed first, treats the answer as authorising local commits only (never push), and records it with the testing approach."
+      ]
+    },
+    {
+      "id": 43,
+      "prompt": "/execute Test-first was adopted. TASK-007 covers scenarios BDD-012 and BDD-013 for invoice approval. Implement it. Partway through, a test for BDD-013 seems to contradict the code that would be simplest to write.",
+      "expected_output": "Writes failing tests first from the scenario IDs, records red, implements until green, and does not weaken the test; escalates the ambiguity through the artifacts.",
+      "files": [],
+      "assertions": [
+        "Writes tests for BDD-012 and BDD-013 before any implementation, citing the scenario IDs.",
+        "Runs them and confirms they fail for the expected reason before implementing, and records that red result as task evidence.",
+        "Implements the smallest change to pass them, records the green result, and refactors only with the suite green.",
+        "Does not weaken, skip or delete the BDD-013 test; instead records the conflict with affected IDs and the decision needed, and changes the test only after the source artifact is revised with a revision entry.",
+        "Marks any task without a meaningful automated test as test-first n/a with a reason.",
+        "Asks, in the same batch, whether failing tests should also be committed first, recommends it only when branches per task and non-squash merging fit, and records red-commit yes, no or deferred."
+      ]
+    },
+    {
+      "id": 44,
+      "prompt": "/execute Test-first with red commits was adopted and the user authorised local commits on task branches. Implement TASK-009 (scenarios BDD-020, BDD-021). The repo has a pre-commit that runs format and lint, and a pre-push that runs the full test suite.",
+      "expected_output": "Commits only failing tests first, then the implementation, records both SHAs, never pushes or bypasses hooks, and leaves the tip green.",
+      "files": [],
+      "assertions": [
+        "Creates a first local commit containing only test files and fixtures, citing TASK-009 and the scenario IDs, before any application code.",
+        "The red commit passes the pre-commit format and lint checks without --no-verify, and the failing suite is not run on it.",
+        "Records the failing-run summary and the red commit SHA, then the implementation commit SHA and passing-run summary, in the task evidence required by the DoD.",
+        "Does not push, force-push, rewrite history or merge, and notes that the pre-push suite evaluates the green tip.",
+        "Recommends preserving the commits (no squash) or recording the SHAs before any squash.",
+        "The Validator verifies in a clean worktree that the red commit precedes the implementation commit, touches only test paths and fails for the expected reason.",
+        "Makes no red commit for a task marked test-first n/a."
+      ]
     }
   ]
 }

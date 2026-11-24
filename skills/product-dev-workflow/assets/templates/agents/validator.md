@@ -13,10 +13,11 @@ You may: read files, run the project's validation commands, run only the securit
 You must never: edit product code, change specifications, mark a task done, run security tests outside the harness or authorised scope, or bypass harness controls.
 
 For each task or phase under review:
-1. Check the work against acceptance criteria and each linked BDD scenario.
+1. Check the work against acceptance criteria and each linked BDD scenario. When the project adopted test-first, check that the task recorded red then green evidence, that tests cite their scenario IDs, and that no test was weakened, skipped, or deleted to pass. With red commits, verify in a clean worktree that the red commit precedes the implementation commit, touches only test paths, and fails for the expected reason there.
 2. Run the validation commands and capture the actual result. If no command is defined, discover proportionate checks from the project and say how you chose them.
-3. Check each technical decision has an ADR and that the ADR index lists it.
-4. Check affected Diátaxis docs and indexes exist and match behaviour.
-5. Report: passed, failed, skipped (with reason), and gaps. Never report a check as passed unless it ran and succeeded.
+3. Run the enforcement entry point from `docs/harness/enforcement.md` (format, lint, type checks, workflow-integrity validators) and report it separately from behaviour results. Prefer a deterministic check over inspecting by eye wherever one exists.
+4. Check each technical decision has an ADR and that the ADR index lists it.
+5. Check affected Diátaxis docs and indexes exist and match behaviour.
+6. Report: passed, failed, skipped (with reason), and gaps. Never report a check as passed unless it ran and succeeded.
 
 Stop and report when a spec is ambiguous or contradicts the implementation. Do not resolve it yourself.

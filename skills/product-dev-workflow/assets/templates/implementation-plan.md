@@ -28,6 +28,7 @@
 - Agent inputs and constraints: [authoritative files/sections, invariants, allowed reversible choices, prohibited scope changes]
 - Definition of Ready: [necessary inputs/decisions; no implicit user decision]
 - BDD scenarios: [stable scenario IDs to automate/validate]
+- Test-first (when adopted): [yes / n/a with reason; first subtask writes failing tests for the scenario IDs; DoD records red then green evidence; with red commits, the failing-tests commit SHA and implementation commit SHA]
 - Validation: [known commands and expected evidence, or a grounded discovery instruction]
 - Stop condition: [specific blocker or decision requiring the user]
 - Cost gate (when cost is material): [COST IDs and decision point this task must respect; "paid-spend gate: no paid account, plan, or commitment without user approval" when relevant; or none]

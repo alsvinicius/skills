@@ -14,12 +14,13 @@ Keep the harness small and grounded in the real project. Reuse what already exis
 |---|---|
 | `AGENTS.md` / `CLAUDE.md` rule | Entry point linking the product workflow, ADR index, Diátaxis index, and the harness, and stating that every change goes through the workflow unless the user explicitly opts out. See [shared rules](documentation-and-repo-rules.md#product-workflow-guidance-in-agentsmd-and-claudemd). |
 | `docs/harness/README.md` | Index of the harness and how the flow runs end to end. |
-| `docs/harness/validation.md` | The real commands and evidence that count as validation (tests, lint, build, BDD suite, and any approved security checks with their authorised targets and containment). Do not invent commands; record how they are discovered when unknown. |
+| `docs/harness/validation.md` | The real commands and evidence that count as validation (tests and the test-first evidence rules when [adopted](tdd.md), format, lint, type checks per the [code style baseline](code-style.md), build, BDD suite, and any approved security checks with their authorised targets and containment). Do not invent commands; record how they are discovered when unknown. |
+| `docs/harness/enforcement.md` | The deterministic checks (`CHK-nnn`), their single entry point, hook activation, CI, and waivers, from [the template](../assets/templates/enforcement.md). |
 | `docs/harness/agents.md` | Which agents exist, what each may do, and when to use each. |
 | Agent definitions | The three agents below, in the host's native agent location. |
 | State and records | Workflow state, revision entries (`docs/revisions/`), ADRs, autonomous decisions, and prototypes, with their paths. |
 
-Do not add hooks, CI changes, or scripts that the project has not agreed to. Propose them and wait for approval, or record them as an autonomous decision.
+Generate deterministic checks, validators, and git hooks following [deterministic enforcement](deterministic-enforcement.md). The approval of the harness covers the checks listed in `docs/harness/enforcement.md`; hooks, CI changes, third-party tools, or scripts beyond that list need their own approval, or an autonomous decision record.
 
 ## Custom agents
 

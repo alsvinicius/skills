@@ -12,6 +12,7 @@
 - Last completed action: [action and saved artifact revision]
 - Next action: [specific question batch or document operation]
 - Recommended next workflow step: [next command/step, or the blocking work needed first]
+- Testing approach: [test-first (TDD) / tests-with-code / deferred, with source and date; or not yet asked]; red commits: [yes / no / deferred / n/a]
 - Autonomous mode: [off / on, user instruction and date; link to docs/autonomous-decisions/README.md]
 - MVP test boundary: [included tasks, deferred-from-mvp tasks, how it will be tested, or not defined]
 - MVP implementation progress: [active task, completed task IDs/evidence, validation results, blockers, or not started]
@@ -32,6 +33,7 @@
 | Domain model (DDD) | [docs/domain/README.md] | [revision] | draft | [sources] | [questions or none] |
 | Journeys | [link] | [revision] | draft | [sources] | [questions or none] |
 | Technical definition | [link] | [revision] | draft | [sources] | [questions or none] |
+| Code style baseline | [docs/engineering/code-style.md or deferral] | [revision] | draft | [sources] | [questions or none] |
 | Implementation plan | [link] | [revision] | draft | [sources] | [questions or none] |
 | MVP implementation | [repository paths / task IDs] | [code revision or commit if known] | not-started | [plan revision] | [blockers or none] |
 
@@ -49,6 +51,7 @@ Compared against [the registry](../../references/capabilities.md); maintained by
 | ADR index | [docs/adr/README.md] | [created] |
 | Prototypes | [docs/prototypes/README.md or n/a] | [not applicable (no frontend) / suggested / approved / declined / created] |
 | Harness | [docs/harness/README.md or n/a] | [suggested / approved / declined / created] |
+| Enforcement checks, entry point, and hooks | [docs/harness/enforcement.md or n/a] | [not planned / planned / created / activated / declined] |
 | Agents (validator, documenter, executor) | [paths] | [not created / created] |
 | Diagrams (single draw.io file) | [docs/diagrams/architecture.drawio and README.md, or n/a] | [tool available / install suggested / fallback chosen / created] |
 | AGENTS.md / CLAUDE.md workflow rule | [paths] | [present / repaired / missing / user opted out, with source] |

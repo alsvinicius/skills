@@ -1,0 +1,13 @@
+#!/bin/sh
+# pre-push: slower checks before pushing. Holds no logic; calls the project's single entry point.
+# Replace the placeholder with the real command recorded in docs/harness/enforcement.md.
+set -eu
+
+CHECK_CMD="[entry point command for the slower checks, for example a task-runner target]"
+
+case "$CHECK_CMD" in
+  \[*) echo "pre-push: entry point not configured; see docs/harness/enforcement.md" >&2; exit 1 ;;
+esac
+
+# shellcheck disable=SC2086
+exec $CHECK_CMD

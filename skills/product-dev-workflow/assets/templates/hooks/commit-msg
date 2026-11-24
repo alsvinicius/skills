@@ -1,0 +1,13 @@
+#!/bin/sh
+# commit-msg: validates the commit message against the project's convention.
+# $1 is the path of the message file. Replace the placeholder with the real command.
+set -eu
+
+CHECK_CMD="[command that validates a commit message file, if the project has a convention]"
+
+case "$CHECK_CMD" in
+  \[*) echo "commit-msg: validator not configured; see docs/harness/enforcement.md" >&2; exit 1 ;;
+esac
+
+# shellcheck disable=SC2086
+exec $CHECK_CMD "$1"

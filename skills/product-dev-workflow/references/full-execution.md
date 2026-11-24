@@ -13,9 +13,9 @@ Use when the user asks to execute the whole planned project, not just the MVP. I
 ## Loop
 
 1. Read repository instructions, the plan, linked REQ/JRN/DEC/ADR, workflow state, and the harness validation guide.
-2. Take the next unblocked task across all phases, in dependency order. Implement it fully within its acceptance criteria and BDD scenarios.
+2. Take the next unblocked task across all phases, in dependency order. When the project adopted test-first ([TDD](tdd.md)), write the failing tests first and record the red result; with `red-commit: yes`, commit only the tests first on the task branch (local, never pushed) and record the SHA. Implement it fully within its acceptance criteria and BDD scenarios, until the tests pass.
 3. Write an [ADR](adr.md) for each technical or architectural decision made.
-4. Run validation. Use the Validator agent when available and record the evidence. Do not claim a pass that did not happen.
+4. Run the enforcement entry point from `docs/harness/enforcement.md`, then the rest of validation. Use the Validator agent when available and record the evidence. Do not claim a pass that did not happen.
 5. Use the Documenter agent when available, or do the same work directly: update Diátaxis docs, indexes, ADR index, workflow state, and revision entries (`docs/revisions/`).
 6. Checkpoint, then continue. Do not ask for confirmation at task boundaries.
 

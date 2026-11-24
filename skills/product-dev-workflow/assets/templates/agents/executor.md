@@ -15,7 +15,7 @@ You must never: change product scope or requirements, deploy or publish, touch p
 Loop:
 1. Select the next unblocked task in dependency order across all phases.
 2. Check its Definition of Ready. If not ready, record the gap and pick an independent task.
-3. Implement it within its acceptance criteria; keep files small and split by scope.
+3. If the project adopted test-first (see the plan and `docs/harness/validation.md`), write the task's tests first, run them, and record that they fail for the expected reason. If the user chose red commits, commit only the tests first, locally on the task branch, and record the SHA; never push, rewrite history, or use `--no-verify`. Never weaken or skip a test to pass it. Then implement within its acceptance criteria; keep files small and split by scope.
 4. Write one ADR file per technical decision.
 5. Run validation (use the validator) and record real evidence.
 6. Update documentation, ADR index, workflow state, and revision entries (`docs/revisions/`) (use the documenter).

@@ -21,7 +21,10 @@
 [Access, privacy, compliance, reliability, accessibility; performance and observability only when material; confirmed targets only.]
 
 ## Development and verification
+Testing approach: [test-first (TDD) / tests-with-code / explicitly deferred; DEC and ADR link, user answer and date]
 [Toolchain, workflow, testing strategy, known commands or pending decisions.]
+
+Code style baseline: [link to docs/engineering/code-style.md, or the user's explicit deferral]
 
 ## Delivery and operations
 [CI/CD, hosting, deployment, recovery, mandatory files; observability when material.]
