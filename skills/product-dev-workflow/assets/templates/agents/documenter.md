@@ -17,6 +17,8 @@ For each change:
 2. Keep files small. Split by scope, link related files, and update the folder index and `docs/README.md`.
 3. Make sure each technical decision has its own ADR file and the ADR index is current; in autonomous mode link the matching autonomous decision record.
 4. Update workflow state and add or update the entry in `docs/revisions/vN/` for each revisioned artifact that changed, and update affected pages of the draw.io diagram file.
-5. Verify all relative links resolve.
+5. Verify the `AGENTS.md`/`CLAUDE.md` product workflow rule is present, current, and linked; repair it narrowly.
+6. When asked to reconcile, follow the reconciliation reference: evaluate changes since the recorded baseline, update the artifacts, and advance the baseline.
+7. Verify all relative links resolve.
 
 Report what changed and any documentation gap you could not fill because the facts are unconfirmed.

@@ -398,6 +398,74 @@
         "Does not create an entry for the label-only change and does not embed a changelog in the artifacts.",
         "Does not treat the implementation as complete until the revision entry exists."
       ]
+    },
+    {
+      "id": 34,
+      "prompt": "/reconcile The team edited the repo by hand for two weeks without the workflow. Workflow state records Last reconciled revision abc123. Since then: a new CSV export endpoint was added (not in the PRD), the payment provider SDK was swapped, REQ-005's confirmation email was removed, and a README typo was fixed. Bring the artifacts up to date.",
+      "expected_output": "Evaluates the change set since the baseline, classifies groups, asks about product intent only for unplanned behaviour and the removed requirement, records the SDK swap as an after-the-fact ADR, updates artifacts, writes one revision round, and advances the baseline.",
+      "files": [],
+      "assertions": [
+        "Builds the change set from the recorded baseline using version control and inspects statically without running the application.",
+        "Classifies each change group (unplanned behaviour, implicit technical decision, contradiction, no artifact impact) and treats the typo fix as no artifact impact.",
+        "Asks one to three focused questions about keeping, changing or reverting the CSV export and the removed confirmation email instead of promoting observed behaviour to a REQ unprompted.",
+        "Records the SDK swap as an ADR noting it was recorded after the fact, and does not invent a rationale.",
+        "Marks REQ-005 retired or needs-review per the answer, never deleting or reusing the ID.",
+        "Writes a revision entry in docs/revisions/vN with baseline and head, bumps changed artifact revisions, and updates the index.",
+        "Updates Last reconciled revision in workflow state only to the head actually evaluated, and does not edit application code."
+      ]
+    },
+    {
+      "id": 35,
+      "prompt": "Set up the product workflow for this existing repo. It has an AGENTS.md with build commands and a CLAUDE.md that only says 'Be concise'. Finish the technical definition and prepare the repo for the team.",
+      "expected_output": "Adds or integrates a concise Product workflow section requiring all changes to go through the workflow with an explicit-opt-out exception, preserves existing content, and makes CLAUDE.md point to it.",
+      "files": [],
+      "assertions": [
+        "Preserves the existing build commands in AGENTS.md and the 'Be concise' line in CLAUDE.md.",
+        "Adds the Product workflow section to one file and has the other import or point to it without duplicating the full section.",
+        "States that every change goes through the workflow with artifacts kept current, with the only exception being an explicit user request to skip it for that change.",
+        "Links the actual artifact paths and mentions /reconcile for out-of-workflow changes without copying requirements into the file.",
+        "Records the rule's presence in workflow state."
+      ]
+    },
+    {
+      "id": 36,
+      "prompt": "The project already has the product workflow rule in AGENTS.md. User: 'Rename the settings page title, and do NOT update the workflow artifacts for this one.' Then later: 'Now add a rule that invoices over 500 must be approved by a manager.'",
+      "expected_output": "Skips artifact updates for the first change only, says the artifacts are out of sync, and runs the full workflow for the second change.",
+      "files": [],
+      "assertions": [
+        "Makes the title change without editing artifacts, revisions or workflow state, and states that the artifacts are now out of sync.",
+        "Treats the exception as applying to that single change and does not weaken or remove the AGENTS.md rule.",
+        "For the invoice rule, reads affected artifacts, adds or updates the REQ with acceptance criteria, writes the revision entry in the same step, and updates dependent journeys, tasks and docs.",
+        "Does not silently fold the earlier title change into the second change's revision entry; it offers /reconcile for that."
+      ]
+    },
+    {
+      "id": 37,
+      "prompt": "/upgrade We updated the product-dev-workflow skill. This project was built with an early version: it has docs/product/prd.md (revision 4), user-journeys, a technical definition, an implementation plan, a central docs/REVISIONS.md log, a docs/adr/ folder, no docs/diataxis, no docs/domain, no AGENTS.md workflow section, and a workflow-state without a capabilities table. Bring it up to date.",
+      "expected_output": "Detects capabilities from evidence, shows an upgrade plan before writing, applies only additive changes, preserves the legacy log and all IDs, and records a capabilities table.",
+      "files": [],
+      "assertions": [
+        "Evaluates every capability in the registry from project evidence rather than from a version number, and shows a plan table before writing files.",
+        "Separates safe actions (indexes, links, state fields, workflow rule) from actions needing input and offers (domain model, diagrams) and asks for approval accordingly.",
+        "Keeps docs/REVISIONS.md intact, creates docs/revisions/ with a v1 entry that links to it instead of rewriting it, and repoints each artifact's Revision history.",
+        "Creates the four Diátaxis axis folders with indexes marked no content yet and does not move or fabricate existing documents.",
+        "Adds the AGENTS.md/CLAUDE.md workflow rule while preserving existing text.",
+        "Does not create a domain model or diagrams unrequested, does not invent security, observability or cost requirements, and records declined or not-applicable answers.",
+        "Does not delete, rename or renumber any file or ID, and does not set Last reconciled revision without confirming sync or running /reconcile.",
+        "Writes the Capabilities applied table to workflow state and reports remaining questions and the next step."
+      ]
+    },
+    {
+      "id": 38,
+      "prompt": "Continue the workflow. (The project's workflow state has no Capabilities applied table and the skill's registry now includes observability, costs and reconciliation.)",
+      "expected_output": "Resumes using the saved state, notices the missing capability record, recommends /upgrade without applying it, and continues the interrupted step.",
+      "files": [],
+      "assertions": [
+        "Reads workflow state and linked artifacts and summarises the recovered step and next action.",
+        "States that the project predates some capabilities and recommends /upgrade without applying any migration silently.",
+        "Does not ask the user to restate already persisted answers and does not start unrelated steps.",
+        "Running /upgrade a second time on a fully upgraded project changes nothing and says so."
+      ]
     }
   ]
 }

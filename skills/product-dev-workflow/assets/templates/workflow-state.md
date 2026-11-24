@@ -4,6 +4,7 @@
 - Updated: [date]
 - Revision history: [docs/revisions/README.md and current vN]
 - Language used by the user for this workflow: [language]
+- Last reconciled revision: [commit or equivalent the artifacts were last verified against, with date; or not yet recorded]
 - Current step: [step]
 - Requested scope: [selected step or authorized end-to-end workflow]
 - Brownfield scope mode: [as-is / change / rebuild, with the source of the decision; or not applicable]
@@ -34,6 +35,13 @@
 | Implementation plan | [link] | [revision] | draft | [sources] | [questions or none] |
 | MVP implementation | [repository paths / task IDs] | [code revision or commit if known] | not-started | [plan revision] | [blockers or none] |
 
+## Capabilities applied
+Compared against [the registry](../../references/capabilities.md); maintained by `/upgrade`.
+
+| ID | Status (present / partial / missing / not applicable / declined / pending) | Evidence or reason | Date |
+|---|---|---|---|
+| [Cnn] | [status] | [path or reason] | [date] |
+
 ## Project indexes and optional parts
 | Item | Actual path | Status |
 |---|---|---|
@@ -43,6 +51,7 @@
 | Harness | [docs/harness/README.md or n/a] | [suggested / approved / declined / created] |
 | Agents (validator, documenter, executor) | [paths] | [not created / created] |
 | Diagrams (single draw.io file) | [docs/diagrams/architecture.drawio and README.md, or n/a] | [tool available / install suggested / fallback chosen / created] |
+| AGENTS.md / CLAUDE.md workflow rule | [paths] | [present / repaired / missing / user opted out, with source] |
 | Revisions index | [docs/revisions/README.md] | [current vN] |
 | Autonomous decisions index | [docs/autonomous-decisions/README.md or n/a] | [off / on] |
 

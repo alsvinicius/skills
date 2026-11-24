@@ -12,7 +12,7 @@ Keep the harness small and grounded in the real project. Reuse what already exis
 
 | Part | Purpose |
 |---|---|
-| `AGENTS.md` pointer | Entry point linking the product workflow, ADR index, Diátaxis index, and the harness. |
+| `AGENTS.md` / `CLAUDE.md` rule | Entry point linking the product workflow, ADR index, Diátaxis index, and the harness, and stating that every change goes through the workflow unless the user explicitly opts out. See [shared rules](documentation-and-repo-rules.md#product-workflow-guidance-in-agentsmd-and-claudemd). |
 | `docs/harness/README.md` | Index of the harness and how the flow runs end to end. |
 | `docs/harness/validation.md` | The real commands and evidence that count as validation (tests, lint, build, BDD suite, and any approved security checks with their authorised targets and containment). Do not invent commands; record how they are discovered when unknown. |
 | `docs/harness/agents.md` | Which agents exist, what each may do, and when to use each. |
@@ -26,7 +26,7 @@ Do not add hooks, CI changes, or scripts that the project has not agreed to. Pro
 Create three agents from the templates in `assets/templates/agents/`, adapted to the project's stack, paths, and language:
 
 - [Validator](../assets/templates/agents/validator.md): checks that work matches the specified REQ/JRN/DEC/TASK/BDD and runs project validation. Read-only apart from reporting; it never fixes what it finds.
-- [Documenter](../assets/templates/agents/documenter.md): keeps Diátaxis docs, ADRs, indexes, workflow state, and revision entries (`docs/revisions/`) accurate and linked.
+- [Documenter](../assets/templates/agents/documenter.md): keeps Diátaxis docs, ADRs, indexes, workflow state, revision entries (`docs/revisions/`), and the `AGENTS.md`/`CLAUDE.md` workflow rule accurate and linked. It also performs [reconciliation](reconciliation.md) when asked.
 - [Executor](../assets/templates/agents/executor.md): runs the full planned project, task by task, through every phase, keeping artifacts current. See [full execution](full-execution.md).
 
 Place each agent where the host expects custom agents. If the host or its location is unknown, ask once, or in autonomous mode use a neutral folder (`docs/harness/agents/`) and record the choice. Do not assume one host's file format or tool names; adapt the templates and keep the instructions identical in intent. Do not claim an agent was installed or invoked unless it actually was.

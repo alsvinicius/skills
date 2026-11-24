@@ -11,6 +11,7 @@
 - Keep each distributable skill's `SKILL.md` as its entry point. Preserve relative links and include required references, templates, assets, and eval cases with the skill that uses them.
 - Ground operational instructions in the actual skill resources. Do not add credentials, personal data, machine-specific paths, or private prompts.
 - Keep documentation in British English, consistent with the bundled documentation guidance, and update links when paths change.
+- When a change to `product-dev-workflow` alters required project structure, template sections, workflow-state fields, or standing rules, add or update the matching entry in `references/capabilities.md` in the same change, so `/upgrade` can migrate older projects additively.
 - Do not invent a licence, evaluation result, installer, or supported runtime behaviour.
 
 ## Validation
