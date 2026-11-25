@@ -55,7 +55,7 @@ Record each answer with its source. Unanswered items stay `unknown` with an owne
 
 - Link each cost task to its `REQ` IDs (for example a confirmed ceiling) and to the affected `COST` IDs, and state the evidence: price source and date, the usage basis, and the approving decision.
 - Add a decision point before selecting a paid service or plan, before any recurring commitment, before deployment, and whenever usage or the denominator changes. Route each to the user and record it in an ADR when it is technical.
-- Paid-spend gate: a task that would create a paid account, buy a plan, start a billed trial, or commit spend stops and reports a blocker unless the user explicitly authorised that spend. In autonomous mode, record it as a blocker ([autonomous mode](autonomous-mode.md)).
+- Paid-spend gate: a task that would create a paid account, buy a plan, start a billed trial, or commit spend stops and reports a blocker unless the user explicitly authorised that spend. In autopilot, record it as a blocker ([autopilot](autonomous-mode.md)).
 - Estimate effort only with capacity assumptions recorded in the plan. The cost model converts effort to cost only with a stated rate and currency.
 
 ## Limits

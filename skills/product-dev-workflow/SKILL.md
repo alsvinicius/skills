@@ -1,6 +1,6 @@
 ---
 name: product-dev-workflow
-description: Guide product discovery, including brownfield analysis of an existing repository, into a business PRD, user journeys, technical definition, and an MVP-first implementation plan, then implement the minimum testable MVP through /mvp, reconcile artifacts after out-of-workflow changes through /reconcile, upgrade older projects after a skill update through /upgrade, set up a project harness and custom agents, and execute the full project through /execute. Use for creating or revising these artifacts, continuing the workflow, implementing planned MVP tasks, propagating requirement changes, reconciling artifacts with changes made outside the workflow, and upgrading projects built with an older version of this skill. Once a project uses this workflow, its AGENTS.md/CLAUDE.md requires every change to go through it unless the user explicitly opts out for that change. Unrelated coding in projects that do not use it does not require this workflow.
+description: Guide product discovery, including brownfield analysis of an existing repository, into a business PRD, user journeys, technical definition, and an MVP-first implementation plan, then implement the minimum testable MVP through /mvp, reconcile artifacts after out-of-workflow changes through /reconcile, upgrade older projects after a skill update through /upgrade, set up a project harness and custom agents (validator, documenter, reviewer, executor), review code changes through /review-code, execute the full project through /execute, and run the whole flow without questions through /autopilot, saving each decision it takes in docs/autodecisions/. Use for creating or revising these artifacts, continuing the workflow, implementing planned MVP tasks, propagating requirement changes, reconciling artifacts with changes made outside the workflow, and upgrading projects built with an older version of this skill. Once a project uses this workflow, its AGENTS.md/CLAUDE.md requires every change to go through it unless the user explicitly opts out for that change. Unrelated coding in projects that do not use it does not require this workflow.
 ---
 
 # Product Development Workflow
@@ -23,8 +23,10 @@ Slash names are routing conventions in user messages; this file does not registe
 | `/mvp` | [MVP implementation](references/mvp-implementation.md) | Approved plan, repository, and implementation instructions | Only the minimum software needed to test the product, plus updated task/workflow state |
 | `/reconcile` | [Reconciliation](references/reconciliation.md) | Workflow state with a baseline, plus repository changes made outside the workflow | Updated artifacts, revision entry, and new baseline in workflow state |
 | `/upgrade` | [Upgrade](references/upgrade.md) | Project created with an older skill version, plus the [capability registry](references/capabilities.md) | Additive migration, capability record in workflow state, and a revision entry |
-| `/harness` | [Harness and agents](references/harness-and-agents.md) | Ready plan (and user approval) | Project harness and validator, documenter, and executor agents |
+| `/harness` | [Harness and agents](references/harness-and-agents.md) | Ready plan (and user approval) | Project harness, code review policy, and validator, documenter, reviewer, and executor agents |
+| `/review-code` | [Code review](references/code-review.md) | A change, task, phase, branch, or diff; the harness policy when one exists | Findings with severities, and a review record in `docs/reviews/` |
 | `/execute` | [Full execution](references/full-execution.md) | Ready plan; harness recommended | The complete planned project, with all artifacts kept current |
+| `/autopilot` | [Autopilot](references/autonomous-mode.md) | An explicit instruction to turn it `on` or `off`, or to `status`/`review` it | Workflow state switch, and one file per decision in `docs/autodecisions/` |
 
 Read the selected reference and its template, plus [shared documentation rules](references/documentation-and-repo-rules.md) and the [ADR rules](references/adr.md). For `/brownfield-discovery`, read the brownfield assessment template and the references/templates for PRD, journeys, technical definition, and planning. Load other steps when needed for prerequisites or changes.
 
@@ -71,7 +73,8 @@ For `/brownfield-discovery`, treat repository code and versioned documentation a
 - **Reconciliation:** changes made outside the workflow are brought back into the artifacts with `/reconcile`. See [reconciliation](references/reconciliation.md).
 - **Backwards compatibility:** projects built with an older version of this skill are brought forward with `/upgrade`, which is additive and driven by the [capability registry](references/capabilities.md). Any change to this skill that alters required project structure must add a registry entry. See [upgrade](references/upgrade.md).
 - **Harness and agents:** suggest a project harness to guide the development flow, and ask for approval. See [harness and agents](references/harness-and-agents.md).
-- **Autonomous mode:** if the user explicitly asks for a fully autonomous run without questions, decide instead of asking and record each decision as its own file in `docs/autonomous-decisions/`. See [autonomous mode](references/autonomous-mode.md).
+- **Code review:** every code task is reviewed by a dedicated read-only Reviewer agent (or the main agent when there is no harness) after validation. Findings carry severities, `blocker` and unwaived `major` findings stop a task from being done, and each review is saved in `docs/reviews/`. See [code review](references/code-review.md).
+- **Autopilot:** if the user explicitly asks for the whole flow to run without questions, decide instead of asking and save each decision as its own file in `docs/autodecisions/`. The user can turn it on and off at any time, and the `Autopilot` field in workflow state is the switch. See [autopilot](references/autonomous-mode.md).
 
 ## Language and document size
 
@@ -88,7 +91,7 @@ Statuses: `draft` for incomplete/provisional content; `ready` when completion cr
 
 Use stable IDs: `REQ-001` for requirements, `JRN-001` for journeys, `DEC-001` for technical decisions, `TASK-001` for tasks, and `COST-001` for cost-model lines. Preserve existing IDs, never reuse removed IDs, and mark removed items retired. Link journeys to requirements, decisions to requirements/journeys, and tasks to sources and dependencies. Attach business rules and acceptance criteria to their owning items.
 
-Maintain workflow state using [the template](assets/templates/workflow-state.md): actual artifact paths (including ADR, Diátaxis, prototype, harness, and autonomous-decision indexes), revisions, readiness, blockers, deferred technical preferences, and downstream updates. At handoff summarize outputs, remaining decisions, and the next usable step.
+Maintain workflow state using [the template](assets/templates/workflow-state.md): actual artifact paths (including ADR, Diátaxis, prototype, harness, autodecisions, and review indexes), revisions, readiness, blockers, deferred technical preferences, and downstream updates. At handoff summarize outputs, remaining decisions, and the next usable step.
 
 ## Recommend the next step
 
@@ -102,12 +105,13 @@ At the end of every requested workflow step, explicitly recommend what should ha
 | Technical definition | `/planning` |
 | Planning | Suggest the project harness (`/harness`, needs approval); then `/mvp` to build the minimum testable slice, or `/execute` for the whole project. For an `as-is` plan with no admitted tasks, report that no implementation is needed instead |
 | Harness | `/mvp` for a quick testable slice, or `/execute` for the full project |
+| Code review | Fix the blocking findings, re-validate, then continue with the next task or phase |
 | MVP implementation | Test the slice with real users, then `/execute` for the remaining scope |
 | Full execution | Validate every phase's exit criteria, then release review |
 
 If the current artifact is still `draft` or has blockers, first name the specific action needed to complete or unblock it, then identify the subsequent step. If prerequisites are missing, say what must be resolved before that step can proceed reliably. For planning, point to the next unblocked Phase 1 task when the plan identifies one. Recommend without starting the next step; continue only when it is already within the user's request. If workflow state is being maintained, save the recommendation there too. Keep the handoff concise and tied to the artifact produced.
 
-For `/mvp`, build only the minimum needed to test the product (see [MVP implementation](references/mvp-implementation.md)); defer every other planned task. For `/execute`, work through the whole plan. In both cases work autonomously within the confirmed product scope and repository rules: select and complete unblocked tasks, use project-defined tools, update affected docs, ADRs, and state, and proceed to the next task. Autonomy does not authorize inventing product decisions, expanding scope, exposing secrets, incurring material costs, running security tests outside the approved harness and authorised scope, or performing irreversible external actions such as deployment or publication. Pause only when a material decision or an authorization boundary prevents safe progress; continue independent tasks and record the blocker. In autonomous mode, record would-be questions instead of asking.
+For `/mvp`, build only the minimum needed to test the product (see [MVP implementation](references/mvp-implementation.md)); defer every other planned task. For `/execute`, work through the whole plan. In both cases work autonomously within the confirmed product scope and repository rules: select and complete unblocked tasks, use project-defined tools, update affected docs, ADRs, and state, and proceed to the next task. Autonomy does not authorize inventing product decisions, expanding scope, exposing secrets, incurring material costs, running security tests outside the approved harness and authorised scope, or performing irreversible external actions such as deployment or publication. Pause only when a material decision or an authorization boundary prevents safe progress; continue independent tasks and record the blocker. While autopilot is on, record would-be questions as autodecisions instead of asking. Review each finished task with [code review](references/code-review.md) before moving on.
 
 ## Checkpoint and resume across sessions
 

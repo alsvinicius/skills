@@ -11,7 +11,7 @@ Ask once, as one focused question inside the testing and development-workflow to
 - When the answer is yes, ask the follow-up in the same batch: should the failing tests also be **committed first**, before the implementation, so the history proves the order ([red commit](#red-commits-optional))? Recommend it when the team works on a branch per task and can merge without squashing. Record the answer next to the testing approach (`red-commit: yes / no / deferred`).
 - Record the answer as a confirmed decision with its source: a `DEC` with an [ADR](adr.md) ("Testing approach"), a line in the technical definition's *Development and verification* section, and the workflow state field `Testing approach`. Link the ADR to the [code style baseline](code-style.md) and [deterministic enforcement](deterministic-enforcement.md) ADR when they share one.
 - If the user already stated a preference earlier (including a deferred technical preference), reuse it and confirm rather than ask again. If the user declines or defers, record `tests-with-code` or the explicit deferral and do not ask again unless the stack or scope changes.
-- Never present it as the default or assume agreement. In [autonomous mode](autonomous-mode.md), adopt test-first when the stack has an automated test runner, record an autonomous decision with how to reverse it, and keep the ADR `proposed`.
+- Never present it as the default or assume agreement. In [autopilot](autonomous-mode.md), adopt test-first when the stack has an automated test runner, record an autodecision with how to reverse it, and keep the ADR `proposed`.
 - Do not invent the test framework or commands. Use the project's, or record how the implementing agent will discover or select one.
 
 ## Rules when test-first is adopted

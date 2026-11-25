@@ -1,10 +1,12 @@
 # AUTO-0001 — [Decision title]
 
 - Date: [date]
+- Made while: autopilot on (since [date])
 - Step / task: [workflow step and TASK ID]
 - Affected IDs: [REQ / JRN / DEC / TASK / ADR IDs]
 - Related ADR: [ADR link, or none if not technical]
-- Status: [active / revised / reversed]
+- Status: [active / confirmed / revised / reversed]
+- Review: [needs-review / reviewed by the user on date]
 
 ## Question not asked
 [What the agent would have asked the user.]

@@ -2,7 +2,7 @@
 
 - Status: [proposed / accepted / superseded by ADR-xxxx / deprecated]
 - Date: [date]
-- Decided by: [user-confirmed / agent proposal / autonomous decision, with link to the autonomous decision record]
+- Decided by: [user-confirmed / agent proposal / autodecision, with link to the record]
 - Sources: [REQ / JRN / TASK IDs and links]
 - Supersedes: [ADR ID or none]
 - Index: [link to the ADR index]

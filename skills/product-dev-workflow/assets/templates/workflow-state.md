@@ -13,7 +13,8 @@
 - Next action: [specific question batch or document operation]
 - Recommended next workflow step: [next command/step, or the blocking work needed first]
 - Testing approach: [test-first (TDD) / tests-with-code / deferred, with source and date; or not yet asked]; red commits: [yes / no / deferred / n/a]
-- Autonomous mode: [off / on, user instruction and date; link to docs/autonomous-decisions/README.md]
+- Autopilot: [off / on, the user's instruction and date; link to docs/autodecisions/README.md. This field is the switch: re-read it before every task]
+- Code review policy: [docs/harness/code-review.md and the review level in force, or not adopted / deferred]; latest review: [CRV ID per active task, or none]
 - MVP test boundary: [included tasks, deferred-from-mvp tasks, how it will be tested, or not defined]
 - MVP implementation progress: [active task, completed task IDs/evidence, validation results, blockers, or not started]
 - Full execution progress: [phase, completed tasks/evidence, blockers, or not started]
@@ -52,11 +53,12 @@ Compared against [the registry](../../references/capabilities.md); maintained by
 | Prototypes | [docs/prototypes/README.md or n/a] | [not applicable (no frontend) / suggested / approved / declined / created] |
 | Harness | [docs/harness/README.md or n/a] | [suggested / approved / declined / created] |
 | Enforcement checks, entry point, and hooks | [docs/harness/enforcement.md or n/a] | [not planned / planned / created / activated / declined] |
-| Agents (validator, documenter, executor) | [paths] | [not created / created] |
+| Agents (validator, documenter, reviewer, executor) | [paths] | [not created / created] |
+| Code review policy and records | [docs/harness/code-review.md, docs/reviews/README.md, or n/a] | [not adopted / created] |
 | Diagrams (single draw.io file) | [docs/diagrams/architecture.drawio and README.md, or n/a] | [tool available / install suggested / fallback chosen / created] |
 | AGENTS.md / CLAUDE.md workflow rule | [paths] | [present / repaired / missing / user opted out, with source] |
 | Revisions index | [docs/revisions/README.md] | [current vN] |
-| Autonomous decisions index | [docs/autonomous-decisions/README.md or n/a] | [off / on] |
+| Autodecisions index | [docs/autodecisions/README.md or n/a] | [autopilot off / on] |
 
 ## Confirmed decisions and sources
 [Links to authoritative artifact sections/IDs; keep facts without an artifact home here temporarily. Approval only if explicitly given.]

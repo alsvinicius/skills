@@ -24,11 +24,11 @@ docs/revisions/
 
 ## What each entry records
 
-- **Motivation:** why the change happened (user request, discovery finding, feasibility conflict, test feedback, autonomous decision), with the source.
+- **Motivation:** why the change happened (user request, discovery finding, feasibility conflict, test feedback, autodecision), with the source.
 - **Artifacts changed:** path, revision before → after, and status change.
 - **What changed:** short summary using stable IDs (REQ, JRN, DEC, ADR, TASK, AUTO), including retired items and why.
 - **Impact:** downstream artifacts reconciled, marked `needs-review`, or still pending, with next action.
-- **Decisions and approvals:** who decided, and links to ADRs or autonomous decision records.
+- **Decisions and approvals:** who decided, and links to ADRs or autodecision.
 
 ## Rules
 

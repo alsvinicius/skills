@@ -4,7 +4,7 @@ The harness is the project-specific scaffolding that guides the whole developmen
 
 ## Suggest the harness, then ask
 
-After `/planning` is ready (or earlier if the user asks), suggest creating a project harness. Explain briefly what it contains and ask for approval. Do not create it without approval. In [autonomous mode](autonomous-mode.md), decide, create it, and record the decision. Record a declined or deferred harness in workflow state.
+After `/planning` is ready (or earlier if the user asks), suggest creating a project harness. Explain briefly what it contains and ask for approval. Do not create it without approval. In [autopilot](autonomous-mode.md), decide, create it, and record the decision. Record a declined or deferred harness in workflow state.
 
 ## Harness contents
 
@@ -17,21 +17,23 @@ Keep the harness small and grounded in the real project. Reuse what already exis
 | `docs/harness/validation.md` | The real commands and evidence that count as validation (tests and the test-first evidence rules when [adopted](tdd.md), format, lint, type checks per the [code style baseline](code-style.md), build, BDD suite, and any approved security checks with their authorised targets and containment). Do not invent commands; record how they are discovered when unknown. |
 | `docs/harness/enforcement.md` | The deterministic checks (`CHK-nnn`), their single entry point, hook activation, CI, and waivers, from [the template](../assets/templates/enforcement.md). |
 | `docs/harness/agents.md` | Which agents exist, what each may do, and when to use each. |
-| Agent definitions | The three agents below, in the host's native agent location. |
-| State and records | Workflow state, revision entries (`docs/revisions/`), ADRs, autonomous decisions, and prototypes, with their paths. |
+| `docs/harness/code-review.md` | The code review policy: when review runs, the checklist for this stack, severity and blocking rules, and who may waive, from [the template](../assets/templates/code-review-policy.md). See [code review](code-review.md). |
+| Agent definitions | The four agents below, in the host's native agent location. |
+| State and records | Workflow state, revision entries (`docs/revisions/`), ADRs, autodecisions (`docs/autodecisions/`), review records (`docs/reviews/`), and prototypes, with their paths. |
 
-Generate deterministic checks, validators, and git hooks following [deterministic enforcement](deterministic-enforcement.md). The approval of the harness covers the checks listed in `docs/harness/enforcement.md`; hooks, CI changes, third-party tools, or scripts beyond that list need their own approval, or an autonomous decision record.
+Generate deterministic checks, validators, and git hooks following [deterministic enforcement](deterministic-enforcement.md). The approval of the harness covers the checks listed in `docs/harness/enforcement.md`; hooks, CI changes, third-party tools, or scripts beyond that list need their own approval, or an autodecision.
 
 ## Custom agents
 
-Create three agents from the templates in `assets/templates/agents/`, adapted to the project's stack, paths, and language:
+Create four agents from the templates in `assets/templates/agents/`, adapted to the project's stack, paths, and language:
 
 - [Validator](../assets/templates/agents/validator.md): checks that work matches the specified REQ/JRN/DEC/TASK/BDD and runs project validation. Read-only apart from reporting; it never fixes what it finds.
 - [Documenter](../assets/templates/agents/documenter.md): keeps Diátaxis docs, ADRs, indexes, workflow state, revision entries (`docs/revisions/`), and the `AGENTS.md`/`CLAUDE.md` workflow rule accurate and linked. It also performs [reconciliation](reconciliation.md) when asked.
-- [Executor](../assets/templates/agents/executor.md): runs the full planned project, task by task, through every phase, keeping artifacts current. See [full execution](full-execution.md).
+- [Reviewer](../assets/templates/agents/reviewer.md): reviews each change for correctness, scope, design fit, tests, security and documentation and writes review records. Read-only; it never fixes what it finds. See [code review](code-review.md).
+- [Executor](../assets/templates/agents/executor.md): runs the full planned project, task by task, through every phase, keeping artifacts current, and sends each task through validation and review. See [full execution](full-execution.md).
 
-Place each agent where the host expects custom agents. If the host or its location is unknown, ask once, or in autonomous mode use a neutral folder (`docs/harness/agents/`) and record the choice. Do not assume one host's file format or tool names; adapt the templates and keep the instructions identical in intent. Do not claim an agent was installed or invoked unless it actually was.
+Place each agent where the host expects custom agents. If the host or its location is unknown, ask once, or in autopilot use a neutral folder (`docs/harness/agents/`) and record the choice. Do not assume one host's file format or tool names; adapt the templates and keep the instructions identical in intent. Do not claim an agent was installed or invoked unless it actually was.
 
-Each agent definition states: purpose, inputs to read, what it may change, what it must never do, the evidence it must report, and its stop conditions. Agents inherit the repository's `AGENTS.md`, the scope and authorisation limits in this skill, and the autonomous mode rules when active.
+Each agent definition states: purpose, inputs to read, what it may change, what it must never do, the evidence it must report, and its stop conditions. Agents inherit the repository's `AGENTS.md`, the scope and authorisation limits in this skill, and the autopilot rules when active.
 
 Record the agent definitions and their paths in workflow state and `docs/harness/agents.md`. Make an ADR for the choice of harness layout.

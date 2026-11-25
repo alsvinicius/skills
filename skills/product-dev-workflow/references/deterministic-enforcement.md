@@ -42,6 +42,8 @@ These make the skill's [completion check](../SKILL.md#completion-check) determin
 | File size | No document exceeds the project's size limit (record the limit; do not invent one) |
 | Workflow rule | `AGENTS.md`/`CLAUDE.md` carry the product workflow section |
 | Open threads | A `ready` artifact has no unowned TBD |
+| Autodecisions | Every `AUTO-nnnn` file is listed in `docs/autodecisions/README.md`, has a status, and links the IDs it affects; each `active` decision still carries its `needs-review` marker |
+| Reviews | Every `CRV-nnnn` file is listed in `docs/reviews/README.md`; a task marked done has a review record with no open `blocker` or unwaived `major` finding |
 
 Keep these checks structural. They never judge whether content is correct or complete; that stays with the Validator agent and the user.
 
@@ -71,7 +73,7 @@ A rule may be waived only with a recorded reason: an inline marker the tool supp
 
 ## Approval and authorisation
 
-- Proposing checks is part of [technical definition](tech-definition.md) and planning. Creating them is part of the harness: the user's approval of the harness covers the checks listed in `docs/harness/enforcement.md`; anything added later needs its own approval. In [autonomous mode](autonomous-mode.md), decide and record an autonomous decision.
+- Proposing checks is part of [technical definition](tech-definition.md) and planning. Creating them is part of the harness: the user's approval of the harness covers the checks listed in `docs/harness/enforcement.md`; anything added later needs its own approval. In [autopilot](autonomous-mode.md), decide and record an autonomous decision.
 - Activating hooks changes only the local repository configuration the user asked to be set up. Installing new third-party tools, adding CI jobs, or changing remote or global settings needs explicit approval, as does anything that incurs cost.
 - Creating files is not running them against production, secrets, or external systems. Security checks stay inside the approved harness and authorised scope.
 

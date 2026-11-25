@@ -6,7 +6,7 @@ Generate architecture, sequence, and related diagrams as a single draw.io file w
 
 1. Check whether a draw.io skill or MCP server is available in the current environment. If so, use it to create and edit the diagrams.
 2. If none is available, tell the user and suggest installing a draw.io skill or MCP server for their agent host (check the host's current documentation or the draw.io project for the supported option; do not invent install commands). Do not make installation a blocker.
-3. While waiting or if the user declines, offer these fallbacks and take the one they choose: write the `.drawio` file directly (it is plain XML, an `mxfile` with one `diagram` element per page), or keep the diagrams as text diagrams in the documentation. In [autonomous mode](autonomous-mode.md), choose the fallback without asking and record it as an autonomous decision. Never claim a diagram was rendered or validated when it was only written as XML.
+3. While waiting or if the user declines, offer these fallbacks and take the one they choose: write the `.drawio` file directly (it is plain XML, an `mxfile` with one `diagram` element per page), or keep the diagrams as text diagrams in the documentation. In [autopilot](autonomous-mode.md), choose the fallback without asking and record it as an autonomous decision. Never claim a diagram was rendered or validated when it was only written as XML.
 
 ## File and pages
 

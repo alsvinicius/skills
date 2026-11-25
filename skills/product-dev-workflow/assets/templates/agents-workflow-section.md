@@ -9,3 +9,4 @@ Every change to this project goes through the product workflow, and the workflow
 - After changing anything, update the affected artifacts, ADRs, Diátaxis docs, workflow state, and the revision entry in `docs/revisions/` in the same change.
 - Exception: skip the workflow only when the user explicitly says so for that change (for example, "do not update the workflow artifacts"). The exception covers that change only. Do not touch the artifacts for it, and say in the reply that they are now out of sync; `/reconcile` later recovers the change from the recorded baseline.
 - If the repository changed outside this flow, run `/reconcile` before relying on the artifacts.
+- Autopilot: the `Autopilot` field in the workflow state says whether the agent may decide instead of asking. When it is `on`, each would-be question is saved as its own file in `docs/autodecisions/`; the user can turn it off at any time.

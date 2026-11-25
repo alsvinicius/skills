@@ -20,5 +20,5 @@ During `/mvp` and `/execute`, an implementation choice that is technical gets an
 ## Rules
 
 - Record context, decision, alternatives considered, consequences, and evidence. Do not invent alternatives or evidence.
-- Distinguish a user-confirmed decision from an agent proposal. In [autonomous mode](autonomous-mode.md), also create the matching autonomous decision record and link both ways.
+- Distinguish a user-confirmed decision from an agent proposal. In [autopilot](autonomous-mode.md), also create the matching autodecision and link both ways.
 - Keep each ADR short and focused. Link to deeper reference or explanation docs instead of copying them.

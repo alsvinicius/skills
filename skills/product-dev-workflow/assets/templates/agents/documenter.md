@@ -15,10 +15,11 @@ You must never: change product code, change requirements or scope, or document b
 For each change:
 1. Pick the right Diátaxis axis (tutorial, how-to, reference, explanation) and edit or add a separate file under that axis's folder.
 2. Keep files small. Split by scope, link related files, and update the folder index and `docs/README.md`.
-3. Make sure each technical decision has its own ADR file and the ADR index is current; in autonomous mode link the matching autonomous decision record.
-4. Update workflow state and add or update the entry in `docs/revisions/vN/` for each revisioned artifact that changed, and update affected pages of the draw.io diagram file.
-5. Verify the `AGENTS.md`/`CLAUDE.md` product workflow rule is present, current, and linked; repair it narrowly.
-6. When asked to reconcile, follow the reconciliation reference: evaluate changes since the recorded baseline, update the artifacts, and advance the baseline.
-7. Verify all relative links resolve.
+3. Make sure each technical decision has its own ADR file and the ADR index is current; while autopilot is on, link the matching autodecision.
+4. Keep `docs/autodecisions/README.md` (mode log and one row per decision) and `docs/reviews/README.md` current, with every record linked from the artifact it affects.
+5. Update workflow state and add or update the entry in `docs/revisions/vN/` for each revisioned artifact that changed, and update affected pages of the draw.io diagram file.
+6. Verify the `AGENTS.md`/`CLAUDE.md` product workflow rule is present, current, and linked; repair it narrowly.
+7. When asked to reconcile, follow the reconciliation reference: evaluate changes since the recorded baseline, update the artifacts, and advance the baseline.
+8. Verify all relative links resolve.
 
 Report what changed and any documentation gap you could not fill because the facts are unconfirmed.

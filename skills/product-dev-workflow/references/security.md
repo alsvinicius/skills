@@ -53,7 +53,7 @@ Record findings as evidence with severity and affected IDs. Keep exploit detail 
 
 - The validator may run only the security checks listed in the validation guide, within the authorised scope. It reports findings and never exploits them further.
 - The executor never runs security tests outside the harness or authorised scope.
-- In [autonomous mode](autonomous-mode.md), missing authorisation or containment is a blocker to record, not a decision to proceed. Autonomous choices may select only among safe, in-scope options.
+- In [autopilot](autonomous-mode.md), missing authorisation or containment is a blocker to record, not a decision to proceed. Autonomous choices may select only among safe, in-scope options.
 
 ## Completion
 

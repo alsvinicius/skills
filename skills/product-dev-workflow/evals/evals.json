@@ -216,8 +216,8 @@
       "files": [],
       "assertions": [
         "Executes all phases, not only the MVP slice.",
-        "Creates a docs/autonomous-decisions folder with one file per decision and an index.",
-        "Links technical autonomous decisions to ADRs and does not deploy or publish."
+        "Creates a docs/autodecisions folder with one file per decision and an index.",
+        "Links technical autodecisions to ADRs and does not deploy or publish."
       ]
     },
     {
@@ -296,7 +296,7 @@
       "assertions": [
         "Does not run the penetration test or any security scan that is not listed in the approved harness validation guide.",
         "Does not test the third-party provider, which is outside the authorised scope, and does not bypass harness controls.",
-        "Records the missing authorisation and containment as a blocker in workflow state, or as an autonomous decision that stops that thread, without asking the user questions.",
+        "Records the missing authorisation and containment as a blocker in workflow state, or as an autodecision that stops that thread, without asking the user questions.",
         "Continues independent planned tasks and reports the security blocker with the approval needed."
       ]
     },
@@ -549,6 +549,85 @@
         "Recommends preserving the commits (no squash) or recording the SHAs before any squash.",
         "The Validator verifies in a clean worktree that the red commit precedes the implementation commit, touches only test paths and fails for the expected reason.",
         "Makes no red commit for a task marked test-first n/a."
+      ]
+    },
+    {
+      "id": 45,
+      "prompt": "/execute The harness exists with validator, documenter and executor agents. TASK-004 is implemented and the enforcement entry point and tests pass. Continue.",
+      "expected_output": "Sends the task to a read-only review step, fixes blocking findings, and only then marks it done.",
+      "files": [],
+      "assertions": [
+        "Sends the finished task to the Reviewer agent, or reviews it directly and says so when no Reviewer exists, after validation and before the documenter step.",
+        "Writes a review record as its own file in docs/reviews/ (CRV-nnnn) and lists it in docs/reviews/README.md.",
+        "Every finding has a severity, path:line, the linked REQ/STY/DEC/BDD/ADR ID, a failure scenario and a direction; findings without evidence are not reported.",
+        "Does not mark TASK-004 done while a blocker or unwaived major finding is open, fixes them, re-validates and has only the changed parts re-reviewed.",
+        "Stops after two fix rounds, marks the task blocked with the findings listed, and continues with an independent task.",
+        "The Reviewer never edits code, tests or specifications and never reviews its own output."
+      ]
+    },
+    {
+      "id": 46,
+      "prompt": "/harness Create the harness for the tutor booking project. Approve everything.",
+      "expected_output": "Creates four agents including the reviewer, and the code review policy.",
+      "files": [],
+      "assertions": [
+        "Creates validator, documenter, reviewer and executor agents from the templates, in the host's agent location or docs/harness/agents/ with the choice recorded.",
+        "Creates docs/harness/code-review.md from the policy template with a checklist adapted to the project's stack and STY/DEC/ADR IDs.",
+        "Lists the reviewer in docs/harness/agents.md and records the policy and agents in workflow state.",
+        "The reviewer definition is read-only and states what it must never do and its stop conditions.",
+        "Does not claim an agent was installed or invoked unless it was."
+      ]
+    },
+    {
+      "id": 47,
+      "prompt": "/review-code Review the changes on branch feature/cancel-booking. There is no harness in this repository.",
+      "expected_output": "Reviews the diff directly against the specification, read-only, and records the review.",
+      "files": [],
+      "assertions": [
+        "Reads the specification and linked IDs first, then the diff, and does not rely on the author's description.",
+        "Does not edit code, tests or specifications and does not fix findings.",
+        "Reports findings with severity, location, violated ID, failure scenario and direction, and states what was not reviewed.",
+        "Does not report what the project's formatter or linter already enforces; points to the check instead.",
+        "Writes a review record in docs/reviews/ because the project uses the workflow, without creating a harness."
+      ]
+    },
+    {
+      "id": 48,
+      "prompt": "/autopilot on Run the whole tutor booking project autonomously from the PRD to the plan.",
+      "expected_output": "Turns autopilot on explicitly, records the switch, and saves each would-be question as its own autodecision file.",
+      "files": [],
+      "assertions": [
+        "Records Autopilot: on, the user's instruction and the date in workflow state and in the mode log of docs/autodecisions/README.md.",
+        "Saves every would-be question as its own AUTO-nnnn file in docs/autodecisions/, never batched, with the question not asked, options, choice, impact, reversal and sources.",
+        "A technical choice also has an ADR linked both ways, and dependent artifacts carry needs-review markers.",
+        "Does not invent metrics, budgets, dates or credentials; facts only the user can supply become labelled assumptions or open threads.",
+        "Lists the autodecisions at handoff."
+      ]
+    },
+    {
+      "id": 49,
+      "prompt": "/autopilot off We are mid-way through TASK-006 in /execute. Stop deciding for me, I want to answer the questions from now on.",
+      "expected_output": "Finishes the current atomic action, checkpoints, summarises decisions, and asks normally afterwards.",
+      "files": [],
+      "assertions": [
+        "Sets Autopilot: off in workflow state and adds the change to the mode log with the instruction and date.",
+        "Finishes the current atomic action, checkpoints, and does not abandon a half-written file.",
+        "Lists the autodecisions made while it was on, with their status and needs-review markers, and does not undo or delete any of them.",
+        "Asks the user about the next material decision instead of deciding it, and keeps independent work going.",
+        "Re-reads the Autopilot field before the next task rather than relying on memory."
+      ]
+    },
+    {
+      "id": 50,
+      "prompt": "/upgrade The project was built with an older version. Workflow state has 'Autonomous mode: on (2026-10-02)' and decisions in docs/autonomous-decisions/. There is a harness with three agents.",
+      "expected_output": "Adds the new capabilities additively and keeps the legacy folder.",
+      "files": [],
+      "assertions": [
+        "Adds the Autopilot field as on, carrying over the legacy instruction and date, and does not move or rename docs/autonomous-decisions/, recording its path in workflow state.",
+        "Adds the mode log and a status column to the existing decision index without rewriting existing records.",
+        "Offers the code review policy and Reviewer agent once (C20), creates them only after approval, and never overwrites the existing agent files.",
+        "Adds the review line to open tasks' DoD only and leaves completed tasks and their evidence untouched.",
+        "Records C20 and C21 in the Capabilities applied table and opens a revision entry."
       ]
     }
   ]

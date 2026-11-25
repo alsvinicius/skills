@@ -6,7 +6,7 @@
 - Language: [language used by the user for this workflow]
 
 ## Motivation
-[Why this round happened, with source: user request, discovery finding, test feedback, autonomous decision AUTO-xxxx.]
+[Why this round happened, with source: user request, discovery finding, test feedback, autodecision AUTO-xxxx.]
 
 ## Artifacts changed
 | Artifact | Revision (before → after) | Status | Summary |
@@ -22,4 +22,4 @@
 | [artifact and IDs] | [reconciled / needs-review / pending] | [action] |
 
 ## Decisions and approvals
-[Who decided; links to ADR or autonomous decision records. Approval only if explicitly given.]
+[Who decided; links to ADR or autodecision. Approval only if explicitly given.]
